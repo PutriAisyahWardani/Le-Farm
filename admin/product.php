@@ -38,8 +38,8 @@ $res=mysqli_query($con,$sql);
 		  <div class="col-xl-12">
 			 <div class="card">
 				<div class="card-body">
-				   <h4 class="box-title">Products </h4>
-				   <h4 class="box-link"><a href="manage_product.php">Add Product</a> </h4>
+				   <h4 class="box-title">Product </h4>
+				   <h4 class="box-link"><a href="manage_product.php">Tambah Product</a> </h4>
 				</div>
 				<div class="card-body--">
 				   <div class="table-stats order-table ov-h">
@@ -48,12 +48,12 @@ $res=mysqli_query($con,$sql);
 							<tr>
 							   <th class="serial">#</th>
 							   <th width="2%">ID</th>
-							   <th width="10%">Categories</th>
-							   <th width="30%">Name</th>
-							   <th width="10%">Image</th>
-							   <th width="10%">MRP</th>
-							   <th width="7%">Price</th>
-							   <th width="7%">Qty</th>
+							   <th width="10%">Kategori</th>
+							   <th width="30%">Nama</th>
+							   <th width="10%">Foto</th>
+							   <!--<th width="10%">MRP</th>-->
+							   <th width="7%">Harga</th>
+							   <th width="7%">Jumlah</th>
 							   <th width="26%"></th>
 							</tr>
 						 </thead>
@@ -67,7 +67,7 @@ $res=mysqli_query($con,$sql);
 							   <td><?php echo $row['categories']?></td>
 							   <td><?php echo $row['name']?></td>
 							   <td><img src="<?php echo PRODUCT_IMAGE_SITE_PATH.$row['image']?>"/></td>
-							   <td><?php echo $row['mrp']?></td>
+							   <!--<td><?php echo $row['mrp']?></td>-->
 							   <td><?php echo $row['price']?></td>
 							   <td><?php echo $row['qty']?><br/>
 							   <?php

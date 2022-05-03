@@ -188,9 +188,9 @@ if(isset($_POST['submit'])){
 							   <div class="form-group">
 									<div class="row">
 									  <div class="col-lg-6">
-										<label for="categories" class=" form-control-label">Categories</label>
+										<label for="categories" class=" form-control-label">Kategori</label>
 										<select class="form-control" name="categories_id" id="categories_id" onchange="get_sub_cat('')" required>
-											<option>Select Category</option>
+											<option>Pilih Kategori</option>
 											<?php
 											$res=mysqli_query($con,"select id,categories from categories order by categories asc");
 											while($row=mysqli_fetch_assoc($res)){
@@ -205,23 +205,23 @@ if(isset($_POST['submit'])){
 										</select>
 									  </div>
 									   <div class="col-lg-6">
-										<label for="categories" class=" form-control-label">Sub Categories</label>
+										<label for="categories" class=" form-control-label">Sub Kategori</label>
 										<select class="form-control" name="sub_categories_id" id="sub_categories_id">
-											<option>Select Sub Category</option>
+											<option>Pilih Sub Kategori</option>
 										</select>
 									  </div>
 									</div>
 								</div>	
 								<div class="form-group">
-									<label for="categories" class=" form-control-label">Product Name</label>
+									<label for="categories" class=" form-control-label">Nama Produk</label>
 									<input type="text" name="name" placeholder="Enter product name" class="form-control" required value="<?php echo $name?>">
 								</div>
 								<div class="form-group">
 									<div class="row">
 									  <div class="col-lg-3">
-										<label for="categories" class=" form-control-label">Best Seller</label>
+										<label for="categories" class=" form-control-label">Rekomendasi</label>
 										<select class="form-control" name="best_seller" required>
-											<option value=''>Select</option>
+											<option value=''>Pilih</option>
 											<?php
 											if($best_seller==1){
 												echo '<option value="1" selected>Yes</option>
@@ -236,16 +236,16 @@ if(isset($_POST['submit'])){
 											?>
 										</select>
 									  </div>
-									  <div class="col-lg-3">
-										<label for="categories" class=" form-control-label">MRP</label>
+									  <!--<div class="col-lg-3">
+										<label for="categories" class=" form-control-label">Jumlah</label>
 										<input type="text" name="mrp" placeholder="Enter product mrp" class="form-control" required value="<?php echo $mrp?>">
-									  </div>
+									  </div>-->
 									  <div class="col-lg-3">
-										<label for="categories" class=" form-control-label">Price</label>
+										<label for="categories" class=" form-control-label">Harga</label>
 										<input type="text" name="price" placeholder="Enter product price" class="form-control" required value="<?php echo $price?>">
 									  </div>
 									  <div class="col-lg-3">
-										<label for="categories" class=" form-control-label">Qty</label>
+										<label for="categories" class=" form-control-label">Jumlah</label>
 										<input type="text" name="qty" placeholder="Enter qty" class="form-control" required value="<?php echo $qty?>">
 									  </div>
 									</div>
@@ -257,7 +257,7 @@ if(isset($_POST['submit'])){
 								<div class="form-group">
 									<div class="row"  id="image_box">
 									  <div class="col-lg-10">
-									   <label for="categories" class=" form-control-label">Image</label>
+									   <label for="categories" class=" form-control-label">Foto</label>
 										<input type="file" name="image" class="form-control" <?php echo  $image_required?>>
 										<?php
 										if($image!=''){
@@ -268,7 +268,7 @@ echo "<a target='_blank' href='".PRODUCT_IMAGE_SITE_PATH.$image."'><img width='1
 									  <div class="col-lg-2">
 										<label for="categories" class=" form-control-label"></label>
 										<button id="" type="button" class="btn btn-lg btn-info btn-block" onclick="add_more_images()">
-											<span id="payment-button-amount">Add Image</span>
+											<span id="payment-button-amount">Tambah Foto</span>
 										</button>
 									 </div>
 									 
@@ -288,12 +288,12 @@ foreach($multipleImageArr as $list){
 								</div>
 								
 								<div class="form-group">
-									<label for="categories" class=" form-control-label">Short Description</label>
+									<label for="categories" class=" form-control-label">Lebih Sedikit</label>
 									<textarea name="short_desc" placeholder="Enter product short description" class="form-control" required><?php echo $short_desc?></textarea>
 								</div>
 								
 								<div class="form-group">
-									<label for="categories" class=" form-control-label">Description</label>
+									<label for="categories" class=" form-control-label">Deskripsi</label>
 									<textarea name="description" placeholder="Enter product description" class="form-control" required><?php echo $description?></textarea>
 								</div>
 								
