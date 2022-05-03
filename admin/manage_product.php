@@ -15,8 +15,8 @@ $qty='';*/
 $image='';
 $short_desc	='';
 $description	='';
-$meta_title	='';
-$meta_desc	='';
+/*$meta_title	='';
+$meta_desc	='';*/
 $meta_keyword='';
 $best_seller='';
 $sub_categories_id='';
@@ -27,7 +27,7 @@ $image_required='required';
 $attrProduct[0]['product_id']='';
 $attrProduct[0]['size_id']='';
 $attrProduct[0]['color_id']='';
-$attrProduct[0]['mrp']='';
+//$attrProduct[0]['mrp']='';
 $attrProduct[0]['price']='';
 $attrProduct[0]['qty']='';
 $attrProduct[0]['id']='';
@@ -54,8 +54,8 @@ if(isset($_GET['id']) && $_GET['id']!=''){
 		$qty=$row['qty'];*/
 		$short_desc=$row['short_desc'];
 		$description=$row['description'];
-		$meta_title=$row['meta_title'];
-		$meta_desc=$row['meta_desc'];
+		/*$meta_title=$row['meta_title'];
+		$meta_desc=$row['meta_desc'];*/
 		$meta_keyword=$row['meta_keyword'];
 		$best_seller=$row['best_seller'];
 		$image=$row['image'];
@@ -76,7 +76,7 @@ if(isset($_GET['id']) && $_GET['id']!=''){
 			$attrProduct[$jj]['product_id']=$rowProductAttr['product_id'];
 			$attrProduct[$jj]['size_id']=$rowProductAttr['size_id'];
 			$attrProduct[$jj]['color_id']=$rowProductAttr['color_id'];
-			$attrProduct[$jj]['mrp']=$rowProductAttr['mrp'];
+			//$attrProduct[$jj]['mrp']=$rowProductAttr['mrp'];
 			$attrProduct[$jj]['price']=$rowProductAttr['price'];
 			$attrProduct[$jj]['qty']=$rowProductAttr['qty'];
 			$attrProduct[$jj]['id']=$rowProductAttr['id'];
@@ -99,8 +99,8 @@ if(isset($_POST['submit'])){
 	$qty=get_safe_value($con,$_POST['qty']);*/
 	$short_desc=get_safe_value($con,$_POST['short_desc']);
 	$description=get_safe_value($con,$_POST['description']);
-	$meta_title=get_safe_value($con,$_POST['meta_title']);
-	$meta_desc=get_safe_value($con,$_POST['meta_desc']);
+	/*$meta_title=get_safe_value($con,$_POST['meta_title']);
+	$meta_desc=get_safe_value($con,$_POST['meta_desc']);*/
 	$meta_keyword=get_safe_value($con,$_POST['meta_keyword']);
 	$best_seller=get_safe_value($con,$_POST['best_seller']);
 	
@@ -147,16 +147,16 @@ if(isset($_POST['submit'])){
 				$image=rand(111111111,999999999).'_'.$_FILES['image']['name'];
 				//move_uploaded_file($_FILES['image']['tmp_name'],PRODUCT_IMAGE_SERVER_PATH.$image);
 				imageCompress($_FILES['image']['tmp_name'],PRODUCT_IMAGE_SERVER_PATH.$image);
-				$update_sql="update product set categories_id='$categories_id',name='$name',short_desc='$short_desc',description='$description',meta_title='$meta_title',meta_desc='$meta_desc',meta_keyword='$meta_keyword',image='$image',best_seller='$best_seller',sub_categories_id='$sub_categories_id' where id='$id'";
+				$update_sql="update product set categories_id='$categories_id',name='$name',short_desc='$short_desc',description='$description',meta_keyword='$meta_keyword',image='$image',best_seller='$best_seller',sub_categories_id='$sub_categories_id' where id='$id'";
 			}else{
-				$update_sql="update product set categories_id='$categories_id',name='$name',short_desc='$short_desc',description='$description',meta_title='$meta_title',meta_desc='$meta_desc',meta_keyword='$meta_keyword',best_seller='$best_seller',sub_categories_id='$sub_categories_id' where id='$id'";
+				$update_sql="update product set categories_id='$categories_id',name='$name',short_desc='$short_desc',description='$description',meta_keyword='$meta_keyword',best_seller='$best_seller',sub_categories_id='$sub_categories_id' where id='$id'";
 			}
 			mysqli_query($con,$update_sql);
 		}else{
 			$image=rand(111111111,999999999).'_'.$_FILES['image']['name'];
 			//move_uploaded_file($_FILES['image']['tmp_name'],PRODUCT_IMAGE_SERVER_PATH.$image);
 			imageCompress($_FILES['image']['tmp_name'],PRODUCT_IMAGE_SERVER_PATH.$image);
-			mysqli_query($con,"insert into product(categories_id,name,short_desc,description,meta_title,meta_desc,meta_keyword,status,image,best_seller,sub_categories_id,added_by) values('$categories_id','$name','$short_desc','$description','$meta_title','$meta_desc','$meta_keyword',1,'$image','$best_seller','$sub_categories_id','".$_SESSION['ADMIN_ID']."')");
+			mysqli_query($con,"insert into product(categories_id,name,short_desc,description,meta_keyword,status,image,best_seller,sub_categories_id,added_by) values('$categories_id','$name','$short_desc','$description','$meta_title','$meta_desc','$meta_keyword',1,'$image','$best_seller','$sub_categories_id','".$_SESSION['ADMIN_ID']."')");
 			$id=mysqli_insert_id($con);
 		}
 		
@@ -232,9 +232,9 @@ if(isset($_POST['submit'])){
 							   <div class="form-group">
 									<div class="row">
 									  <div class="col-lg-6">
-										<label for="categories" class=" form-control-label">Categories</label>
+										<label for="categories" class=" form-control-label">Kategori</label>
 										<select class="form-control" name="categories_id" id="categories_id" onchange="get_sub_cat('')" required>
-											<option>Select Category</option>
+											<option>Pilih Kategori</option>
 											<?php
 											$res=mysqli_query($con,"select id,categories from categories order by categories asc");
 											while($row=mysqli_fetch_assoc($res)){
@@ -249,9 +249,9 @@ if(isset($_POST['submit'])){
 										</select>
 									  </div>
 									   <div class="col-lg-6">
-										<label for="categories" class=" form-control-label">Sub Categories</label>
+										<label for="categories" class=" form-control-label">Sub Kategori</label>
 										<select class="form-control" name="sub_categories_id" id="sub_categories_id">
-											<option>Select Sub Category</option>
+											<option>Pilih Sub Kategori</option>
 										</select>
 									  </div>
 									</div>
@@ -259,13 +259,13 @@ if(isset($_POST['submit'])){
 								<div class="form-group">
 									<div class='row'>
 										<div class="col-lg-9">
-											<label for="categories" class=" form-control-label">Product Name</label>
+											<label for="categories" class=" form-control-label">Nama Produk</label>
 											<input type="text" name="name" placeholder="Enter product name" class="form-control" required value="<?php echo $name?>">
 										</div>
 										<div class="col-lg-3">
-											<label for="categories" class=" form-control-label">Best Seller</label>
+											<label for="categories" class=" form-control-label">Rekomendasi</label>
 											<select class="form-control" name="best_seller" required>
-												<option value=''>Select</option>
+												<option value=''>Pilih</option>
 												<?php
 												if($best_seller==1){
 													echo '<option value="1" selected>Yes</option>
@@ -287,20 +287,20 @@ if(isset($_POST['submit'])){
 									$attrProductLoop=1;
 									foreach($attrProduct as $list){?>
 									<div class="row"id="attr_<?php echo $attrProductLoop?>">
-									  <div class="col-lg-2">
+									  <!--<div class="col-lg-2">
 										<label for="categories" class=" form-control-label">MRP</label>
 										<input type="text" name="mrp[]" placeholder="MRP" class="form-control" required value="<?php echo $list['mrp']?>">
-									  </div>
+									  </div>-->
 									  <div class="col-lg-2">
-										<label for="categories" class=" form-control-label">Price</label>
+										<label for="categories" class=" form-control-label">Harga</label>
 										<input type="text" name="price[]" placeholder="Price" class="form-control" required value="<?php echo $list['price']?>">
 									  </div>
 									  <div class="col-lg-2">
-										<label for="categories" class=" form-control-label">Qty</label>
+										<label for="categories" class=" form-control-label">Jumlah</label>
 										<input type="text" name="qty[]" placeholder="Qty" class="form-control" required value="<?php echo $list['qty']?>">
 									  </div>
 									  <div class="col-lg-2">
-										<label for="categories" class=" form-control-label">Size</label>
+										<label for="categories" class=" form-control-label">Kg</label>
 										<select class="form-control" name="size_id[]" id="size_id">
 										<option>Size</option>
 										<?php
@@ -316,7 +316,7 @@ if(isset($_POST['submit'])){
 										</select>
 										
 									  </div>
-									  <div class="col-lg-2">
+									  <!--<div class="col-lg-2">
 										<label for="categories" class=" form-control-label">Color</label>
 										<select class="form-control" name="color_id[]" id="color_id">
 										<option>Color</option>
@@ -331,7 +331,7 @@ if(isset($_POST['submit'])){
 											}
 											?>
 										</select>
-									  </div>
+									  </div>-->
 									  <div class="col-lg-2">
 										<label for="categories" class=" form-control-label"></label>
 										<?php
@@ -363,7 +363,7 @@ if(isset($_POST['submit'])){
 								<div class="form-group">
 									<div class="row"  id="image_box">
 									  <div class="col-lg-10">
-									   <label for="categories" class=" form-control-label">Image</label>
+									   <label for="categories" class=" form-control-label">Foto</label>
 										<input type="file" name="image" class="form-control" <?php echo  $image_required?>>
 										<?php
 										if($image!=''){
@@ -374,7 +374,7 @@ echo "<a target='_blank' href='".PRODUCT_IMAGE_SITE_PATH.$image."'><img width='1
 									  <div class="col-lg-2">
 										<label for="categories" class=" form-control-label"></label>
 										<button id="" type="button" class="btn btn-lg btn-info btn-block" onclick="add_more_images()">
-											<span id="payment-button-amount">Add Image</span>
+											<span id="payment-button-amount">Tambah Foto</span>
 										</button>
 									 </div>
 									 
@@ -394,16 +394,16 @@ foreach($multipleImageArr as $list){
 								</div>
 								
 								<div class="form-group">
-									<label for="categories" class=" form-control-label">Short Description</label>
+									<label for="categories" class=" form-control-label">Deskripsi Pendek</label>
 									<textarea name="short_desc" placeholder="Enter product short description" class="form-control" required><?php echo $short_desc?></textarea>
 								</div>
 								
 								<div class="form-group">
-									<label for="categories" class=" form-control-label">Description</label>
+									<label for="categories" class=" form-control-label">Deskripsi</label>
 									<textarea name="description" placeholder="Enter product description" class="form-control" required><?php echo $description?></textarea>
 								</div>
 								
-								<div class="form-group">
+								<!--<div class="form-group">
 									<label for="categories" class=" form-control-label">Meta Title</label>
 									<textarea name="meta_title" placeholder="Enter product meta title" class="form-control"><?php echo $meta_title?></textarea>
 								</div>
@@ -411,10 +411,10 @@ foreach($multipleImageArr as $list){
 								<div class="form-group">
 									<label for="categories" class=" form-control-label">Meta Description</label>
 									<textarea name="meta_desc" placeholder="Enter product meta description" class="form-control"><?php echo $meta_desc?></textarea>
-								</div>
+								</div>-->
 								
 								<div class="form-group">
-									<label for="categories" class=" form-control-label">Meta Keyword</label>
+									<label for="categories" class=" form-control-label">Keyword</label>
 									<textarea name="meta_keyword" placeholder="Enter product meta keyword" class="form-control"><?php echo $meta_keyword?></textarea>
 								</div>
 								
