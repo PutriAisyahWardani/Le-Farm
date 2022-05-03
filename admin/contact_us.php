@@ -28,11 +28,11 @@ $res=mysqli_query($con,$sql);
 							<tr>
 							   <th class="serial">#</th>
 							   <th>ID</th>
-							   <th>Name</th>
+							   <th>Nama</th>
 							   <th>Email</th>
 							   <th>Mobile</th>
-							   <th>Query</th>
-							   <th>Date</th>
+							   <th>Keterangan</th>
+							   <th>Tanggal</th>
 							   <th></th>
 							</tr>
 						 </thead>

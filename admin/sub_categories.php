@@ -42,8 +42,8 @@ $res=mysqli_query($con,$sql);
 							<tr>
 							   <th class="serial">#</th>
 							   <th>ID</th>
-							   <th>Categories</th>
-							   <th>Sub Categories</th>
+							   <th>Kategori</th>
+							   <th>Sub Kategori</th>
 							   <th></th>
 							</tr>
 						 </thead>

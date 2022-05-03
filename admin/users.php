@@ -19,7 +19,7 @@ $res=mysqli_query($con,$sql);
 		  <div class="col-xl-12">
 			 <div class="card">
 				<div class="card-body">
-				   <h4 class="box-title">Users </h4>
+				   <h4 class="box-title">Customer </h4>
 				</div>
 				<div class="card-body--">
 				   <div class="table-stats order-table ov-h">
@@ -28,10 +28,10 @@ $res=mysqli_query($con,$sql);
 							<tr>
 							   <th class="serial">#</th>
 							   <th>ID</th>
-							   <th>Name</th>
+							   <th>Nama</th>
 							   <th>Email</th>
 							   <th>Mobile</th>
-							   <th>Date</th>
+							   <th>Tanggal</th>
 							   <th></th>
 							</tr>
 						 </thead>
