@@ -40,10 +40,10 @@ $res=mysqli_query($con,$sql);
 						 <thead>
 							<tr>
 							   <th class="serial">#</th>
-							   <th>Heading1</th>
-							   <th>Heading2</th>
+							   <th>Nama</th>
+							   <!--<th>Heading2</th>
 							   <th>Btn Txt</th>
-							   <th>Btn Link</th>
+							   <th>Btn Link</th>-->
 							   <th>Image</th>
 							   <th></th>
 							</tr>
@@ -55,10 +55,10 @@ $res=mysqli_query($con,$sql);
 							<tr>
 							   <td class="serial"><?php echo $i?></td>
 							   </td>
-							   <td><?php echo $row['Nama']?></td>
+							   <td><?php echo $row['heading1']?></td>
 							   <!--<td><?php echo $row['heading2']?></td>
 							   <td><?php echo $row['btn_txt']?></td>
-							   <td><?php echo $row['btn_link']?></td>->>
+							   <td><?php echo $row['btn_link']?></td>-->
 							   <td>
 							   <?php
 							   

@@ -17,9 +17,9 @@ if(isset($_GET['id']) && $_GET['id']!=''){
 	if($check>0){
 		$row=mysqli_fetch_assoc($res);
 		$heading1=$row['heading1'];
-		$heading2=$row['heading2'];
+		/*$heading2=$row['heading2'];
 		$btn_txt=$row['btn_txt'];
-		$btn_link=$row['btn_link'];
+		$btn_link=$row['btn_link'];*/
 		$image=$row['image'];
 		$order_no=$row['order_no'];
 	}else{
@@ -29,10 +29,10 @@ if(isset($_GET['id']) && $_GET['id']!=''){
 }
 
 if(isset($_POST['submit'])){
-	$heading1=get_safe_value($con,$_POST['heading1']);
-	$heading2=get_safe_value($con,$_POST['heading2']);
+	$heading1=get_safe_value($con,$_POST['nama']);
+	/*$heading2=get_safe_value($con,$_POST['heading2']);
 	$btn_txt=get_safe_value($con,$_POST['btn_txt']);
-	$btn_link=get_safe_value($con,$_POST['btn_link']);
+	$btn_link=get_safe_value($con,$_POST['btn_link']);*/
 	$order_no=get_safe_value($con,$_POST['order_no']);
 	
 	if(isset($_GET['id']) && $_GET['id']==0){
@@ -55,15 +55,15 @@ if(isset($_POST['submit'])){
 				$image=rand(111111111,999999999).'_'.$_FILES['image']['name'];
 				//move_uploaded_file($_FILES['image']['tmp_name'],BANNER_SERVER_PATH.$image);
 				imageCompress($_FILES['image']['tmp_name'],BANNER_SERVER_PATH.$image);
-				mysqli_query($con,"update banner set heading1='$heading1',heading2='$heading2',btn_txt='$btn_txt',btn_link='$btn_link',image='$image',order_no='$order_no' where id='$id'");
+				mysqli_query($con,"update banner set heading1='$heading1',image='$image',order_no='$order_no' where id='$id'");
 			}else{
-				mysqli_query($con,"update banner set heading1='$heading1',heading2='$heading2',btn_txt='$btn_txt',btn_link='$btn_link',order_no='$order_no'  where id='$id'");
+				mysqli_query($con,"update banner set heading1='$heading1',order_no='$order_no'  where id='$id'");
 			}
 		}else{
 			$image=rand(111111111,999999999).'_'.$_FILES['image']['name'];
 			//move_uploaded_file($_FILES['image']['tmp_name'],BANNER_SERVER_PATH.$image);
 			imageCompress($_FILES['image']['tmp_name'],BANNER_SERVER_PATH.$image);
-			mysqli_query($con,"insert into banner(heading1,heading2,btn_txt,btn_link,image,status,order_no) values('$heading1','$heading2','$btn_txt','$btn_link','$image','1','$order_no')");
+			mysqli_query($con,"insert into banner(heading1,heading2,btn_txt,btn_link,image,status,order_no) values('$heading1','$image','1','$order_no')");
 		}
 		header('location:banner.php');
 		die();
@@ -80,7 +80,7 @@ if(isset($_POST['submit'])){
 							<div class="card-body card-block">
 							   <div class="form-group">
 									<label for="heading1" class=" form-control-label">Nama</label>
-									<input type="text" name="heading1" placeholder="Enter heading1" class="form-control" required value="<?php echo $heading1?>">
+									<input type="text" name="Nama" placeholder="Enter Nama" class="form-control" required value="<?php echo $heading1?>">
 								</div>
 								<!--<div class="form-group">
 									<label for="heading1" class=" form-control-label">Heading2</label>
@@ -95,7 +95,7 @@ if(isset($_POST['submit'])){
 									<input type="text" name="btn_link" placeholder="Enter btn link" class="form-control" value="<?php echo $btn_link?>">-->
 								</div>
 								<div class="form-group">
-									<label for="heading1" class=" form-control-label">Image</label>
+									<label for="Nama" class=" form-control-label">Image</label>
 									<input type="file" name="image" placeholder="Enter image" class="form-control" <?php echo  $image_required?> value="<?php echo $image?>">
 									<?php
 										if($image!=''){
