@@ -14,12 +14,12 @@ require('top.inc.php');
 					  <table class="table">
 							<thead>
 								<tr>
-									<th class="product-thumbnail">Order ID</th>
-									<th class="product-name"><span class="nobr">Product/Qty</span></th>
+									<th class="product-thumbnail">ID</th>
+									<th class="product-name"><span class="nobr">Product/Jumlah</span></th>
 									<th class="product-price"><span class="nobr"> Address </span></th>
-									<th class="product-stock-stauts"><span class="nobr"> Payment Type </span></th>
-									<th class="product-stock-stauts"><span class="nobr"> Payment Status </span></th>
-									<th class="product-stock-stauts"><span class="nobr"> Order Status </span></th>
+									<th class="product-stock-stauts"><span class="nobr"> Jenis Pembayaran </span></th>
+									<th class="product-stock-stauts"><span class="nobr"> Status Pembayaran </span></th>
+									<th class="product-stock-stauts"><span class="nobr"> Detail Pesanan </span></th>
 								</tr>
 							</thead>
 							<tbody>

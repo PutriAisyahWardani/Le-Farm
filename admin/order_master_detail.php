@@ -52,18 +52,18 @@ if(isset($_POST['update_order_status'])){
 		  <div class="col-xl-12">
 			 <div class="card">
 				<div class="card-body">
-				   <h4 class="box-title">Order Detail </h4>
+				   <h4 class="box-title">Detail Pesanan </h4>
 				</div>
 				<div class="card-body--">
 				   <div class="table-stats order-table ov-h">
 					  <table class="table">
 								<thead>
 									<tr>
-										<th class="product-thumbnail">Product Name</th>
-										<th class="product-thumbnail">Product Image</th>
-										<th class="product-name">Qty</th>
-										<th class="product-price">Price</th>
-										<th class="product-price">Total Price</th>
+										<th class="product-thumbnail">Nama Produk</th>
+										<th class="product-thumbnail">Gambar Produk</th>
+										<th class="product-name">Jumlah</th>
+										<th class="product-price">Harga</th>
+										<th class="product-price">Total</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -93,7 +93,7 @@ if(isset($_POST['update_order_status'])){
 									?>
 									<tr>
 										<td colspan="3"></td>
-										<td class="product-name">Coupon Value</td>
+										<td class="product-name">Kupon</td>
 										<td class="product-name">
 										<?php 
 										echo $coupon_value."($coupon_code)";
@@ -103,7 +103,7 @@ if(isset($_POST['update_order_status'])){
 									<?php } ?>
 									<tr>
 										<td colspan="3"></td>
-										<td class="product-name">Total Price</td>
+										<td class="product-name">Total</td>
 										<td class="product-name"><?php 
 												echo $total_price-$coupon_value;
 												?></td>
@@ -124,7 +124,7 @@ if(isset($_POST['update_order_status'])){
 							<div>
 								<form method="post">
 									<select class="form-control" name="update_order_status" id="update_order_status" required onchange="select_status()">
-										<option value="">Select Status</option>
+										<option value="">Pilih Status</option>
 										<?php
 										$res=mysqli_query($con,"select * from order_status");
 										while($row=mysqli_fetch_assoc($res)){

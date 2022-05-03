@@ -39,11 +39,11 @@ $res=mysqli_query($con,$sql);
 							<tr>
 							   <th class="serial">#</th>
 							   <th>ID</th>
-							   <th>Name/Email</th>
-							   <th>Product Name</th>
+							   <th>Nama/Email</th>
+							   <th>Nama Product</th>
 							   <th>Rating</th>
 							   <th>Review</th>
-							   <th>Added On</th>
+							   <th>Tanggal</th>
 							   <th></th>
 							</tr>
 						 </thead>
