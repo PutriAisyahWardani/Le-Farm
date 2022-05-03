@@ -14,7 +14,7 @@ if(isset($_SESSION['ADMIN_LOGIN']) && $_SESSION['ADMIN_LOGIN']!=''){
    <head>
       <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <title>Dashboard Page</title>
+      <title>Dashboard Admin</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <link rel="stylesheet" href="assets/css/normalize.css">
       <link rel="stylesheet" href="assets/css/bootstrap.min.css">
@@ -34,14 +34,14 @@ if(isset($_SESSION['ADMIN_LOGIN']) && $_SESSION['ADMIN_LOGIN']!=''){
                   <li class="menu-title">Menu</li>
                   
 				  <li class="menu-item-has-children dropdown">
-                     <a href="product.php" > Product Master</a>
+                     <a href="product.php" > Product </a>
                   </li>
 				  <li class="menu-item-has-children dropdown">
                      <?php 
 					 if($_SESSION['ADMIN_ROLE']==1){
-						echo '<a href="order_master_vendor.php" > Order Master</a>';
+						echo '<a href="order_master_vendor.php" > Pesanan </a>';
 					 }else{
-						echo '<a href="order_master.php" > Order Master</a>';
+						echo '<a href="order_master.php" > Pesanan </a>';
 					 }
 					 ?>
 					 
@@ -49,35 +49,35 @@ if(isset($_SESSION['ADMIN_LOGIN']) && $_SESSION['ADMIN_LOGIN']!=''){
                   </li>
 				  <?php if($_SESSION['ADMIN_ROLE']!=1){?>
 				  <li class="menu-item-has-children dropdown">
-                     <a href="product_review.php" > Product Review</a>
+                     <a href="product_review.php" > Review</a>
                   </li>
-				  <li class="menu-item-has-children dropdown">
+				  <!--<li class="menu-item-has-children dropdown">
                      <a href="color.php" > Color Master</a>
                   </li>
 				  <li class="menu-item-has-children dropdown">
-                     <a href="size.php" > Size Master</a>
+                     <a href="size.php" > Size Master</a>-->
                   </li>
 				  <li class="menu-item-has-children dropdown">
                      <a href="banner.php" > Banner</a>
                   </li>
 				   <li class="menu-item-has-children dropdown">
-                     <a href="vendor_management.php" > Vendor Management</a>
+                     <a href="vendor_management.php" > Mitra</a>
                   </li>
 				  <li class="menu-item-has-children dropdown">
-                     <a href="categories.php" > Categories Master</a>
+                     <a href="categories.php" > Kategori </a>
                   </li>
 				  <li class="menu-item-has-children dropdown">
-                     <a href="sub_categories.php" > Sub Categories Master</a>
+                     <a href="sub_categories.php" > Sub Kategori</a>
                   </li>
                   
 				  <li class="menu-item-has-children dropdown">
-                     <a href="users.php" > User Master</a>
+                     <a href="users.php" > Customer </a>
+                  </li>
+				  <!--<li class="menu-item-has-children dropdown">
+                     <a href="coupon_master.php" > Coupon Master</a>-->
                   </li>
 				  <li class="menu-item-has-children dropdown">
-                     <a href="coupon_master.php" > Coupon Master</a>
-                  </li>
-				  <li class="menu-item-has-children dropdown">
-                     <a href="contact_us.php" > Contact Us</a>
+                     <a href="contact_us.php" > Kontak </a>
                   </li>
 				   
 				  <?php } ?>

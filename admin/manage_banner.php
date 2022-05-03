@@ -79,10 +79,10 @@ if(isset($_POST['submit'])){
                         <form method="post" enctype="multipart/form-data">
 							<div class="card-body card-block">
 							   <div class="form-group">
-									<label for="heading1" class=" form-control-label">Heading1</label>
+									<label for="heading1" class=" form-control-label">Nama</label>
 									<input type="text" name="heading1" placeholder="Enter heading1" class="form-control" required value="<?php echo $heading1?>">
 								</div>
-								<div class="form-group">
+								<!--<div class="form-group">
 									<label for="heading1" class=" form-control-label">Heading2</label>
 									<input type="text" name="heading2" placeholder="Enter heading2" class="form-control" required value="<?php echo $heading2?>">
 								</div>
@@ -92,7 +92,7 @@ if(isset($_POST['submit'])){
 								</div>
 								<div class="form-group">
 									<label for="heading1" class=" form-control-label">Btn Link</label>
-									<input type="text" name="btn_link" placeholder="Enter btn link" class="form-control" value="<?php echo $btn_link?>">
+									<input type="text" name="btn_link" placeholder="Enter btn link" class="form-control" value="<?php echo $btn_link?>">-->
 								</div>
 								<div class="form-group">
 									<label for="heading1" class=" form-control-label">Image</label>

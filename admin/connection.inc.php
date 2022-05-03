@@ -1,8 +1,8 @@
 <?php
 session_start();
-$con=mysqli_connect("localhost","root","","ecomm");
-define('SERVER_PATH',$_SERVER['DOCUMENT_ROOT'].'/php/ecommerce/');
-define('SITE_PATH','http://127.0.0.1/php/ecommerce/');
+$con=mysqli_connect("localhost","root","","le_farm");
+define('SERVER_PATH',$_SERVER['DOCUMENT_ROOT'].'/php/le_farm/');
+define('SITE_PATH','http://127.0.0.1/php/le_farm/');
 
 define('PRODUCT_IMAGE_SERVER_PATH',SERVER_PATH.'media/product/');
 define('PRODUCT_IMAGE_SITE_PATH',SITE_PATH.'media/product/');

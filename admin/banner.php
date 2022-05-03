@@ -32,7 +32,7 @@ $res=mysqli_query($con,$sql);
 			 <div class="card">
 				<div class="card-body">
 				   <h4 class="box-title">Banner </h4>
-				   <h4 class="box-link"><a href="manage_banner.php">Add Banner</a> </h4>
+				   <h4 class="box-link"><a href="manage_banner.php">Tambah Banner</a> </h4>
 				</div>
 				<div class="card-body--">
 				   <div class="table-stats order-table ov-h">
@@ -55,10 +55,10 @@ $res=mysqli_query($con,$sql);
 							<tr>
 							   <td class="serial"><?php echo $i?></td>
 							   </td>
-							   <td><?php echo $row['heading1']?></td>
-							   <td><?php echo $row['heading2']?></td>
+							   <td><?php echo $row['Nama']?></td>
+							   <!--<td><?php echo $row['heading2']?></td>
 							   <td><?php echo $row['btn_txt']?></td>
-							   <td><?php echo $row['btn_link']?></td>
+							   <td><?php echo $row['btn_link']?></td>->>
 							   <td>
 							   <?php
 							   
