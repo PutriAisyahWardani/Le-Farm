@@ -2,9 +2,9 @@
 require('top.inc.php');
 isAdmin();
 $heading1='';
-$heading2='';
+/*$heading2='';
 $btn_txt='';
-$btn_link='';
+$btn_link='';*/
 $image='';
 $msg='';
 $order_no=0;
@@ -63,7 +63,7 @@ if(isset($_POST['submit'])){
 			$image=rand(111111111,999999999).'_'.$_FILES['image']['name'];
 			//move_uploaded_file($_FILES['image']['tmp_name'],BANNER_SERVER_PATH.$image);
 			imageCompress($_FILES['image']['tmp_name'],BANNER_SERVER_PATH.$image);
-			mysqli_query($con,"insert into banner(heading1,heading2,btn_txt,btn_link,image,status,order_no) values('$heading1','$image','1','$order_no')");
+			mysqli_query($con,"insert into banner(heading1,image,status,order_no) values('$heading1','$image','1','$order_no')");
 		}
 		header('location:banner.php');
 		die();

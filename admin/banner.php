@@ -44,7 +44,7 @@ $res=mysqli_query($con,$sql);
 							   <!--<th>Heading2</th>
 							   <th>Btn Txt</th>
 							   <th>Btn Link</th>-->
-							   <th>Image</th>
+							   <th>Gambar</th>
 							   <th></th>
 							</tr>
 						 </thead>

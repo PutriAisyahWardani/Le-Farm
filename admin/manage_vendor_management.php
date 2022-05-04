@@ -63,7 +63,7 @@ if(isset($_POST['submit'])){
                <div class="row">
                   <div class="col-lg-12">
                      <div class="card">
-                        <div class="card-header"><strong>Vendor Management</strong><small> Form</small></div>
+                        <div class="card-header"><strong>Mitra</strong><small> Form</small></div>
                         <form method="post" enctype="multipart/form-data">
 							<div class="card-body card-block">
 							   
@@ -82,13 +82,13 @@ if(isset($_POST['submit'])){
 									<input type="email" name="email" placeholder="Enter email" class="form-control" required value="<?php echo $email?>">
 								</div>
 								<div class="form-group">
-									<label for="categories" class=" form-control-label">Mobile</label>
+									<label for="categories" class=" form-control-label">Telepon</label>
 									<input type="text" name="mobile" placeholder="Enter mobile" class="form-control" required value="<?php echo $mobile?>">
 								</div>
 								
 								
 							   <button id="payment-button" name="submit" type="submit" class="btn btn-lg btn-info btn-block">
-							   <span id="payment-button-amount">Submit</span>
+							   <span id="payment-button-amount">Simpan</span>
 							   </button>
 							   <div class="field_error"><?php echo $msg?></div>
 							</div>
