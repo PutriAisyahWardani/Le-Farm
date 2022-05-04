@@ -237,6 +237,7 @@ function isAdmin(){
 }
 
 function imageCompress($source,$path,$quality=60){
+	$image_path=getcwd()."media/product";
 	$arr=getimagesize($source);
 	if($arr['mime']=="image/png"){
 		$i=imagecreatefrompng($source);

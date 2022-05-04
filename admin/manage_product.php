@@ -92,7 +92,7 @@ if(isset($_GET['id']) && $_GET['id']!=''){
 if(isset($_POST['submit'])){
 	//prx($_POST);
 	$categories_id=get_safe_value($con,$_POST['categories_id']);
-	$sub_categories_id=get_safe_value($con,$_POST['sub_categories_id']);
+	//$sub_categories_id=get_safe_value($con,$_POST['sub_categories_id']);
 	$name=get_safe_value($con,$_POST['name']);
 	/*$mrp=get_safe_value($con,$_POST['mrp']);
 	$price=get_safe_value($con,$_POST['price']);
@@ -147,9 +147,9 @@ if(isset($_POST['submit'])){
 				$image=rand(111111111,999999999).'_'.$_FILES['image']['name'];
 				//move_uploaded_file($_FILES['image']['tmp_name'],PRODUCT_IMAGE_SERVER_PATH.$image);
 				imageCompress($_FILES['image']['tmp_name'],PRODUCT_IMAGE_SERVER_PATH.$image);
-				$update_sql="update product set categories_id='$categories_id',name='$name',short_desc='$short_desc',description='$description',meta_keyword='$meta_keyword',image='$image',best_seller='$best_seller',sub_categories_id='$sub_categories_id' where id='$id'";
+				$update_sql="update product set categories_id='$categories_id',name='$name',short_desc='$short_desc',description='$description',keyword='$keyword',image='$image',best_seller='$best_seller',sub_categories_id='$sub_categories_id' where id='$id'";
 			}else{
-				$update_sql="update product set categories_id='$categories_id',name='$name',short_desc='$short_desc',description='$description',meta_keyword='$meta_keyword',best_seller='$best_seller',sub_categories_id='$sub_categories_id' where id='$id'";
+				$update_sql="update product set categories_id='$categories_id',name='$name',short_desc='$short_desc',description='$description',keyword='$keyword',best_seller='$best_seller',sub_categories_id='$sub_categories_id' where id='$id'";
 			}
 			mysqli_query($con,$update_sql);
 		}else{
@@ -331,7 +331,7 @@ if(isset($_POST['submit'])){
 											}
 											?>
 										</select>
-									  </div>-->
+									  </div>
 									  <div class="col-lg-2">
 										<label for="categories" class=" form-control-label"></label>
 										<?php
@@ -349,7 +349,7 @@ if(isset($_POST['submit'])){
 											<?php
 										}
 										
-										?>
+										?>-->
 										<input type="hidden" name="attr_id[]" value='<?php echo $list['id']?>'/>
 									  </div>
 									</div>
