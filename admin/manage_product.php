@@ -17,7 +17,7 @@ $short_desc	='';
 $description	='';
 /*$meta_title	='';
 $meta_desc	='';*/
-$meta_keyword='';
+$keyword='';
 $best_seller='';
 $sub_categories_id='';
 $multipleImageArr=[];
@@ -56,7 +56,7 @@ if(isset($_GET['id']) && $_GET['id']!=''){
 		$description=$row['description'];
 		/*$meta_title=$row['meta_title'];
 		$meta_desc=$row['meta_desc'];*/
-		$meta_keyword=$row['meta_keyword'];
+		$meta_keyword=$row['keyword'];
 		$best_seller=$row['best_seller'];
 		$image=$row['image'];
 		
@@ -101,7 +101,7 @@ if(isset($_POST['submit'])){
 	$description=get_safe_value($con,$_POST['description']);
 	/*$meta_title=get_safe_value($con,$_POST['meta_title']);
 	$meta_desc=get_safe_value($con,$_POST['meta_desc']);*/
-	$meta_keyword=get_safe_value($con,$_POST['meta_keyword']);
+	$meta_keyword=get_safe_value($con,$_POST['keyword']);
 	$best_seller=get_safe_value($con,$_POST['best_seller']);
 	
 	$res=mysqli_query($con,"select product.* from product where product.name='$name' $condition1");
@@ -156,7 +156,7 @@ if(isset($_POST['submit'])){
 			$image=rand(111111111,999999999).'_'.$_FILES['image']['name'];
 			//move_uploaded_file($_FILES['image']['tmp_name'],PRODUCT_IMAGE_SERVER_PATH.$image);
 			imageCompress($_FILES['image']['tmp_name'],PRODUCT_IMAGE_SERVER_PATH.$image);
-			mysqli_query($con,"insert into product(categories_id,name,short_desc,description,meta_keyword,status,image,best_seller,sub_categories_id,added_by) values('$categories_id','$name','$short_desc','$description','$meta_title','$meta_desc','$meta_keyword',1,'$image','$best_seller','$sub_categories_id','".$_SESSION['ADMIN_ID']."')");
+			mysqli_query($con,"insert into product(categories_id,name,short_desc,description,keyword,status,image,best_seller,sub_categories_id,added_by) values('$categories_id','$name','$short_desc','$description','$keyword',1,'$image','$best_seller','$sub_categories_id','".$_SESSION['ADMIN_ID']."')");
 			$id=mysqli_insert_id($con);
 		}
 		
@@ -208,9 +208,9 @@ if(isset($_POST['submit'])){
 				$attr_id=get_safe_value($con,$_POST['attr_id'][$key]);
 				
 				if($attr_id>0){
-					mysqli_query($con,"update product_attributes set size_id='$size_id',color_id='$color_id',mrp='$mrp',price='$price',qty='$qty' where id='$attr_id'");
+					mysqli_query($con,"update product_attributes set size_id='$size_id',color_id='$color_id',price='$price',qty='$qty' where id='$attr_id'");
 				}else{
-					mysqli_query($con,"insert into product_attributes(product_id,size_id,color_id,mrp,price,qty) values('$id','$size_id','$color_id','$mrp','$price','$qty')");
+					mysqli_query($con,"insert into product_attributes(product_id,size_id,color_id,price,qty) values('$id','$size_id','$color_id','$price','$qty')");
 				}
 			}
 		}
@@ -415,12 +415,12 @@ foreach($multipleImageArr as $list){
 								
 								<div class="form-group">
 									<label for="categories" class=" form-control-label">Keyword</label>
-									<textarea name="meta_keyword" placeholder="Enter product meta keyword" class="form-control"><?php echo $meta_keyword?></textarea>
+									<textarea name="keyword" placeholder="Enter product meta keyword" class="form-control"><?php echo $keyword?></textarea>
 								</div>
 								
 								
 							   <button id="payment-button" name="submit" type="submit" class="btn btn-lg btn-info btn-block">
-							   <span id="payment-button-amount">Submit</span>
+							   <span id="payment-button-amount">Simpan</span>
 							   </button>
 							   <div class="field_error"><?php echo $msg?></div>
 							</div>
