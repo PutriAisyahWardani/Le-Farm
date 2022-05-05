@@ -73,8 +73,8 @@ if(isset($_SESSION['ADMIN_LOGIN']) && $_SESSION['ADMIN_LOGIN']!=''){
 				  <li class="menu-item-has-children dropdown">
                      <a href="users.php" > Customer </a>
                   </li>
-				  <!--<li class="menu-item-has-children dropdown">
-                     <a href="coupon_master.php" > Coupon Master</a>-->
+				  <li class="menu-item-has-children dropdown">
+                     <a href="#" > Pendapatan</a>
                   </li>
 				  <li class="menu-item-has-children dropdown">
                      <a href="contact_us.php" > Kontak </a>
