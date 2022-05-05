@@ -57,24 +57,24 @@ if(isset($_SESSION['ADMIN_LOGIN']) && $_SESSION['ADMIN_LOGIN']!=''){
 				  <li class="menu-item-has-children dropdown">
                      <a href="size.php" > Size Master</a>-->
                   </li>
-				  <li class="menu-item-has-children dropdown">
+				  <!--<li class="menu-item-has-children dropdown">
                      <a href="banner.php" > Banner</a>
-                  </li>
+                  </li>-->
 				   <li class="menu-item-has-children dropdown">
                      <a href="vendor_management.php" > Mitra</a>
                   </li>
-				  <li class="menu-item-has-children dropdown">
+				  <!--<li class="menu-item-has-children dropdown">
                      <a href="categories.php" > Kategori </a>
                   </li>
 				  <li class="menu-item-has-children dropdown">
                      <a href="sub_categories.php" > Sub Kategori</a>
-                  </li>
+                  </li>-->
                   
 				  <li class="menu-item-has-children dropdown">
                      <a href="users.php" > Customer </a>
                   </li>
 				  <li class="menu-item-has-children dropdown">
-                     <a href="#" > Pendapatan</a>
+                     <a href="income.php" > Pendapatan</a>
                   </li>
 				  <li class="menu-item-has-children dropdown">
                      <a href="contact_us.php" > Kontak </a>
