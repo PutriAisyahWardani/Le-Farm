@@ -1,225 +1,253 @@
-<?php 
+<?php
 require('top.inc.php');
-$query = $con->query("SELECT * FROM income ORDER BY tanggal DESC");
+
+isAdmin();
+if(!isset($_SESSION['username'])) {
+    header("Location: login.php");
+    die();
+}
 ?>
 
-<div class="content pb-0">
-	<div class="orders">
-	   <div class="row">
-		  <div class="col-xl-12">
-			 <div class="card">
-				<div class="card-body">
-				<h4 class="box-title">Pendapatan</h4>
-        </div>
-        <!-- /.col-lg-12 -->
-    </div>
-     <div class="row">
-        <div class="col-sm-12">
-            <div class="white-box">
-                <div class="row">
-                    <div class="col-sm-6">                        
-                    </div>
-                    <div class="col-sm-6">
-                        <button class="btn btn-success btn-sm pull-right" onclick="tambah()">Tambah</button>                    
-                        <!--<button class="btn btn-warning btn-sm pull-right" onclick="laporan()" style="margin-right: 5px;">Laporan Dana Masuk</button>-->
-                    </div>
-                </div>
-                <div class="table-responsive">
-                    <table class="table" id="dataku">
-                        <thead>
-                            <tr>
-                                <th>No</th>
-                                <th>Nama</th>
-                                <th>Jumlah</th>
-                                <th>Tanggal</th>
-                                <th>Opt</th>                                
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php 
-                            $no=1;
-							
-                            while ($row=$query->fetch_assoc()) { ?>
-                            <tr>
-                                <td><?=$no++; ?></td>
-                                <td><?=$row['nama'] ?></td>
-                                <td><?= "Rp. ".number_format($row['jumlah']); ?></td>
-                                <td><?=$row['tanggal'] ?></td>
-                                <td>
-                                    <button class="btn btn-warning btn-sm" onclick="edit_income('<?=$row['id'] ?>')"> <i class="fa fa-pencil"></i> </button>
-                                    <button class="btn btn-danger btn-sm" onclick="delete_income('<?=$row['id'] ?>')"> <i class="fa fa-trash-o"></i> </button>
-                                </td>
-                            </tr>
+    <!DOCTYPE html>
+    <html lang="en">
 
-                            
-                            <?php 
-                            // $total=$total+$row['jumlah'];
-                            }
-                        ?>
-                            
-                        </tbody>
-                        <!-- <tr>
-                            <th colspan="2" >Total Dana Masuk</th>
-                            <td align="left"><b><?= "Rp. ".number_format($total); ?></b></td>
-                        </tr> -->
-                    </table>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- /.row -->
-</div>
-<!-- modal -->
-<div class="modal fade" id="modal_form"  tabindex="-1" role="dialog">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title">Modal title</h4>
-      </div>
-      <div class="modal-body">
-        <form class="form-horizontal form-material" id="form">
-            <div class="form-group">
-                <label class="col-md-12">Nama Donatur</label>
-                <div class="col-md-12">
-                     <input type="hidden" id="id" name="id"/> 
-                    <input type="text" name="nama" id="nama" placeholder="Nama Donatur" class="form-control form-control-line">
-                    <span class="help-block"></span>
-                </div>
-                    
-            </div>
-            <div class="form-group">
-                <label for="jumlah" class="col-md-12">Jumlah</label>
-                <div class="col-md-12">
-                    <input type="number" placeholder="Jumlah" class="form-control form-control-line" name="jumlah" id="jumlah"> 
-                    <span class="help-block"></span>
-                </div>
-            </div>
-        
-        </form>
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+        <link href="assets/css/bootstrap.css" rel="stylesheet" />
+        <!-- FONTAWESOME STYLES-->
+        <link href="assets/css/font-awesome.css" rel="stylesheet" />
+        <!-- MORRIS CHART STYLES-->
 
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" id="btnSave" class="btn btn-primary" onclick="save()">Save changes</button>
-      </div>
-    </div><!-- /.modal-content -->
-  </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
-<!-- endmodal -->
+        <!-- CUSTOM STYLES-->
+        <link href="assets/css/custom.css" rel="stylesheet" />
+        <!-- GOOGLE FONTS-->
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+        <!-- TABLE STYLES-->
+        <link href="assets/js/dataTables/dataTables.bootstrap.css" rel="stylesheet" />
 
-<script>
-$('#dataku').dataTable();
-
-let save_method;
-function tambah() {
-    save_method = 'add';
-    $('#form')[0].reset(); // reset form on modals
-    $('.form-group').removeClass('has-error'); // clear error class
-    $('.help-block').empty(); // clear error string
-    $('#modal_form').modal('show'); 
-    $('.modal-title').text('Tambah Dana Dana Masuk'); 
-}
-function save(){
-    $('#btnSave').text('saving...'); //change button text
-    $('#btnSave').attr('disabled',true); //set button disable 
-    let url;
-
-    if(save_method == 'add') {
-        url = "admin/add_income.php";
-    } else {
-        url = "admin/edit_income.php";
-    }
-
-    // ajax adding data to database
-
-    let formData = new FormData($('#form')[0]);
-    $.ajax({
-        url : url,
-        type: "POST",
-        data: formData,
-        contentType: false,
-        processData: false,
-        dataType: "JSON",
-        success: function(data)
-        {
-
-            if(data.status) //if success close modal and reload ajax table
-            {
-                $('#modal_form').modal('hide');
-                 // delay 1 detik
-                  setTimeout(function() { $('#kontenku').load('admin/income.php'); }, 1000);
-                
-            }else{
-                for (let i = 0; i < data.inputerror.length; i++){
-                    $('[name="'+data.inputerror[i]+'"]').parent().parent().addClass('has-error'); //select parent twice to select div form-group class and add has-error class
-                    $('[name="'+data.inputerror[i]+'"]').next().text(data.error_string[i]); //select span help-block class set text error string
-                }
+        <style>
+            span {
+                font-size: 22px;
             }
-            $('#btnSave').text('save'); //change button text
-            $('#btnSave').attr('disabled',false); //set button enable
+        </style>
+    </head>
 
+    <body>
+        <div class="row">
+            <div class="col-md-12">
+                <!-- Advanced Tables -->
+                <div class="panel panel-success">
+                    <div class="panel-heading">
+                        <span>Data Kas Masuk</span>
+                        <span title="Tambah Data"><button style="float: right;" class="btn-md btn btn-success"data-toggle="modal" data-target="#myModal">
+                            <b>+ Tambah</b>
+                    </button></span>
+                    </div>
+                    <div class="panel-body">
+                        <div class="table-responsive">
+                            <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                <thead>
+                                    <tr>
+                                        <th>No.</th>
+                                        <th>Kode</th>
+                                        <th>Tanggal</th>
+                                        <th>Keterangan</th>
+                                        <th>Jumlah</th>
+                                        <th>Aksi</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
 
-        },
-        error: function (jqXHR, textStatus, errorThrown)
-        {
-            alert('Error adding / update data');
-        }
-    });
-}
-function edit_income(id){
-    save_method = 'update';
-    $('#form')[0].reset(); // reset form on modals
-    $('.form-group').removeClass('has-error'); // clear error class
-    $('.help-block').empty(); // clear error string
+                                    <?php 
 
+                                    $no = 1;
+                                    $sql = mysqli_query($con, "SELECT * FROM kas WHERE jenis = 'masuk' ");
+                                    while ($data = mysqli_fetch_assoc($sql)) {
 
-    //Ajax Load data from ajax
-    $.ajax({
-        url : "admin/get_income.php?id="+id,
-        type: "GET",
-        dataType: "JSON",
-        success: function(data)
-        {
+                                ?>
+                                        <tr class="odd gradeX">
+                                            <td>
+                                                <?php echo $no++; ?>
+                                            </td>
+                                            <td>
+                                                <?php echo $data['kode']; ?>
+                                            </td>
+                                            <td>
+                                                <?php echo date('d F Y', strtotime($data['tgl'])); ?>
+                                            </td>
+                                            <td>
+                                                <?php echo $data['keterangan']; ?>
+                                            </td>
+                                            <td align="right">
+                                                <?php echo number_format($data['jumlah']).",-"; ?>
+                                            </td>
+                                            <td>
+                                                <a id="edit_data" data-toggle="modal" data-target="#edit" data-id="<?php echo $data['kode']; ?>" data-ket="<?php echo $data['keterangan']; ?>" data-tgl="<?php echo $data['tgl']; ?>" data-jml="<?php echo $data['jumlah']; ?>" class="btn btn-warning btn-md" title="Ubah Data"><i class="fa fa-edit"> </i></a>
+                                                <a onclick="return confirm('Apakah anda yakin ingin menghapus data?')" href="?page=masuk&aksi=hapus&id=<?php echo $data['kode'];?>" class="btn btn-danger btn-md" title="Hapus Data"><i class="fa fa-trash"> </i></a>
+                                            </td>
+                                        </tr>
+                                        <?php 
+                                    $total = $total+$data['jumlah'];
+                                    } 
+                                ?>
+                                </tbody>
 
-            $('#id').val(data.id);
-            $('#nama').val(data.nama);
-            $('#jumlah').val(data.jumlah);
-            $('#modal_form').modal('show'); // show bootstrap modal when complete loaded
-            $('.modal-title').text('Edit Dana Dana Masuk '); // Set title to Bootstrap modal title
+                                <tr>
+                                    <td colspan="4" style="text-align: left; font-size: 17px; color: maroon;">Total Kas Masuk :</td>
+                                    <td style="font-size: 17px; text-align: right; "><font style="color: green;"><?php echo " Rp." . number_format($total).",-"; ?></font></td>
+                                </tr>
+                            </table>
+                        </div>
 
+                        <!--  Halaman Tambah-->
+                        <div class="panel-body">
+                            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                            <h4 class="modal-title" id="myModalLabel">Form Tambah Data</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form role="form" method="POST">
+                                                <div class="form-group">
+                                                    <label>Kode</label>
+                                                    <input class="form-control" name="kode" placeholder="Input Kode" />
+                                                </div>
+                                                <div>
+                                                    <label>Keterangan</label>
+                                                    <textarea class="form-control" rows="3" name="ket"></textarea>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Tanggal</label>
+                                                    <input class="form-control" type="date" name="tgl" />
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Jumlah</label>
+                                                    <input class="form-control" type="number" name="jml" />
+                                                </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
+                                            <button type="submit" name="simpan" class="btn btn-primary">Simpan</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-        },
-        error: function (jqXHR, textStatus, errorThrown)
-        {
-            alert('Error get data from ajax');
-        }
-    });
-}
+                        <?php 
+                    if(isset($_POST['simpan'])) {
+                        $kode = $_POST['kode'];
+                        $tgl = $_POST['tgl'];
+                        $ket = $_POST['ket'];
+                        $jml = $_POST['jml'];
 
-function delete_income(id)
-{
-    if(confirm('Kamu Yakin hapus data ini?'))
-    {
-        // ajax delete data to database
-        $.ajax({
-            url : "admin/delete_income.php?id="+id,
-            type: "GET",
-            dataType: "JSON",
-            success: function(data)
-            {
-                setTimeout(function() { $('#kontenku').load('admin/income.php'); }, 1000);
-            },
-            error: function (jqXHR, textStatus, errorThrown)
-            {
-                alert('Error deleting data');
-            }
-        });
+                        $sql = mysqli_query($koneksi, "INSERT INTO kas (kode, keterangan, tgl, jumlah, jenis, keluar) VALUES ('$kode', '$ket', '$tgl', '$jml', 'masuk', 0)");
 
-    }
-}
-function laporan() {
-    $('#kontenku').load('page/laporan_kas_masuk.php');
-}
+                        if($sql) {
 
-</script>
+                            echo "
+                                <script>
+                                alert('Data Berhasil Ditambahkan');
+                                document.location.href = '';
+                                </script>";   
+                        }
+                    }
+                ?>
+                            <!-- Akhir Halaman Tambah -->
+
+                            <!-- Halaman Ubah -->
+                            <div class="panel-body">
+                                <div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                                <h4 class="modal-title" id="myModalLabel">Form Ubah Data</h4>
+                                            </div>
+                                            <div class="modal-body" id="modal_edit">
+                                                <form role="form" method="POST">
+                                                    <div class="form-group">
+                                                        <label>Kode</label>
+                                                        <input class="form-control" name="kode" placeholder="Input Kode" id="kode" readonly />
+                                                    </div>
+                                                    <div>
+                                                        <label>Keterangan</label>
+                                                        <textarea class="form-control" rows="3" name="ket" id="ket"></textarea>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Tanggal</label>
+                                                        <input class="form-control" type="date" name="tgl" id="tgl" />
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Jumlah</label>
+                                                        <input class="form-control" type="number" name="jml" id="jml" />
+                                                    </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
+                                                <button type="submit" name="ubah" class="btn btn-primary">Simpan</button>
+                                                </form>
+
+                                    <?php 
+                                        if(isset($_POST['ubah'])) {
+                                            $kode = $_POST['kode'];
+                                            $ket = $_POST['ket'];
+                                            $tgl = $_POST['tgl'];
+                                            $jml = $_POST['jml'];
+
+                                            $sql = mysqli_query($koneksi, "UPDATE kas SET keterangan = '$ket', tgl = '$tgl', jumlah = '$jml', jenis = 'masuk', keluar = 0 WHERE kode = '$kode' ");
+                                            if($sql) {
+                                                echo "
+                                                    <script>
+                                                    alert('Data Berhasil Diubah');
+                                                    document.location.href = '';
+                                                    </script>";     
+                                            }
+                                        }
+                                    ?>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Akhir Halaman Ubah -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+        <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
+        <!-- JQUERY SCRIPTS -->
+        <script src="assets/js/jquery-1.10.2.js"></script>
+
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $('#dataTables-example').dataTable();
+            });
+        </script>
+
+        <script type="text/javascript">
+            $(document).on("click", "#edit_data", function() {
+                var kode = $(this).data('id');
+                var ket = $(this).data('ket');
+                var tgl = $(this).data('tgl');
+                var jml = $(this).data('jml');
+
+                $("#modal_edit #kode").val(kode);
+                $("#modal_edit #ket").val(ket);
+                $("#modal_edit #tgl").val(tgl);
+                $("#modal_edit #jml").val(jml);
+
+            })
+        </script>
+
+    </body>
+
+    </html>
