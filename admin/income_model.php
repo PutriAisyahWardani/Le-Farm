@@ -1,5 +1,5 @@
 <?php 
-    Class Pendapatan_Model{
+    Class income_Model{
  
         private $server = "localhost";
         private $username = "root";

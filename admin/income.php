@@ -55,10 +55,10 @@ $res=mysqli_query($con,$sql);
 							<tr>
 							   <td class="serial"><?php echo $i?></td>
 							   <td><?php echo $row['id']?></td>
-							   <td><?php echo $row['username']?></td>
-							   <td><?php echo $row['password']?></td>
-							   <td><?php echo $row['email']?></td>
-							   <td><?php echo $row['mobile']?></td>
+							   <td><?php echo $row['tanggal']?></td>
+							   <td><?php echo $row['minggu']?></td>
+							   <td><?php echo $row['pendapatan']?></td>
+							   <td><?php echo $row['keterangan']?></td>
 							  
 							   <td>
 								<?php
@@ -67,7 +67,7 @@ $res=mysqli_query($con,$sql);
 								}else{
 									echo "<span class='badge badge-pending'><a href='?type=status&operation=active&id=".$row['id']."'>Deactive</a></span>&nbsp;";
 								}
-								echo "<span class='badge badge-edit'><a href='manage_vendor_management.php?id=".$row['id']."'>Edit</a></span>&nbsp;";
+								echo "<span class='badge badge-edit'><a href='manage_income_management.php?id=".$row['id']."'>Edit</a></span>&nbsp;";
 								
 								echo "<span class='badge badge-delete'><a href='?type=delete&id=".$row['id']."'>Delete</a></span>";
 								
