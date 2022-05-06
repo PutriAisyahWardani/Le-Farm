@@ -1,89 +1,225 @@
-<?php
+<?php 
 require('top.inc.php');
-isAdmin();
-if(isset($_GET['type']) && $_GET['type']!=''){
-	$type=get_safe_value($con,$_GET['type']);
-	if($type=='status'){
-		$operation=get_safe_value($con,$_GET['operation']);
-		$id=get_safe_value($con,$_GET['id']);
-		if($operation=='active'){
-			$status='1';
-		}else{
-			$status='0';
-		}
-		$update_status_sql="update income set status='$status' where id='$id'";
-		mysqli_query($con,$update_status_sql);
-	}
-	
-	if($type=='delete'){
-		$id=get_safe_value($con,$_GET['id']);
-		$delete_sql="delete from income where id='$id'";
-		mysqli_query($con,$delete_sql);
-	}
-}
-
-$sql="select * from income where role=1 order by id desc";
-$res=mysqli_query($con,$sql);
+$query = $con->query("SELECT * FROM income ORDER BY tanggal DESC");
 ?>
+
 <div class="content pb-0">
 	<div class="orders">
 	   <div class="row">
 		  <div class="col-xl-12">
 			 <div class="card">
 				<div class="card-body">
-				   <h4 class="box-title">Pendapatan </h4>
-				   <h4 class="box-link"><a href="manage_income_management.php">Tambah</a> </h4>
-				</div>
-				<div class="card-body--">
-				   <div class="table-stats order-table ov-h">
-					  <table class="table ">
-						 <thead>
-							<tr>
-							   <th class="serial">#</th>
-							   <th width="2%">ID</th>
-							   <th width="20%">Tanggal</th>
-							   <th width="20%">Minggu ke</th>
-							   <th width="20%">Pendapatan</th>
-							   <th width="10%">Keterangan</th>
-							   <th width="26%"></th>
-							</tr>
-						 </thead>
-						 <tbody>
-							<?php 
-							$i=1;
-							while($row=mysqli_fetch_assoc($res)){?>
-							<tr>
-							   <td class="serial"><?php echo $i?></td>
-							   <td><?php echo $row['id']?></td>
-							   <td><?php echo $row['tanggal']?></td>
-							   <td><?php echo $row['minggu']?></td>
-							   <td><?php echo $row['pendapatan']?></td>
-							   <td><?php echo $row['keterangan']?></td>
-							  
-							   <td>
-								<?php
-								if($row['status']==1){
-									echo "<span class='badge badge-complete'><a href='?type=status&operation=deactive&id=".$row['id']."'>Active</a></span>&nbsp;";
-								}else{
-									echo "<span class='badge badge-pending'><a href='?type=status&operation=active&id=".$row['id']."'>Deactive</a></span>&nbsp;";
-								}
-								echo "<span class='badge badge-edit'><a href='manage_income_management.php?id=".$row['id']."'>Edit</a></span>&nbsp;";
-								
-								echo "<span class='badge badge-delete'><a href='?type=delete&id=".$row['id']."'>Delete</a></span>";
-								
-								?>
-							   </td>
-							</tr>
-							<?php } ?>
-						 </tbody>
-					  </table>
-				   </div>
-				</div>
-			 </div>
-		  </div>
-	   </div>
-	</div>
+				<h4 class="box-title">Pendapatan</h4>
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+     <div class="row">
+        <div class="col-sm-12">
+            <div class="white-box">
+                <div class="row">
+                    <div class="col-sm-6">                        
+                    </div>
+                    <div class="col-sm-6">
+                        <button class="btn btn-success btn-sm pull-right" onclick="tambah()">Tambah</button>                    
+                        <!--<button class="btn btn-warning btn-sm pull-right" onclick="laporan()" style="margin-right: 5px;">Laporan Dana Masuk</button>-->
+                    </div>
+                </div>
+                <div class="table-responsive">
+                    <table class="table" id="dataku">
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>Nama</th>
+                                <th>Jumlah</th>
+                                <th>Tanggal</th>
+                                <th>Opt</th>                                
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php 
+                            $no=1;
+							
+                            while ($row=$query->fetch_assoc()) { ?>
+                            <tr>
+                                <td><?=$no++; ?></td>
+                                <td><?=$row['nama'] ?></td>
+                                <td><?= "Rp. ".number_format($row['jumlah']); ?></td>
+                                <td><?=$row['tanggal'] ?></td>
+                                <td>
+                                    <button class="btn btn-warning btn-sm" onclick="edit_income('<?=$row['id'] ?>')"> <i class="fa fa-pencil"></i> </button>
+                                    <button class="btn btn-danger btn-sm" onclick="delete_income('<?=$row['id'] ?>')"> <i class="fa fa-trash-o"></i> </button>
+                                </td>
+                            </tr>
+
+                            
+                            <?php 
+                            // $total=$total+$row['jumlah'];
+                            }
+                        ?>
+                            
+                        </tbody>
+                        <!-- <tr>
+                            <th colspan="2" >Total Dana Masuk</th>
+                            <td align="left"><b><?= "Rp. ".number_format($total); ?></b></td>
+                        </tr> -->
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.row -->
 </div>
-<?php
-require('footer.inc.php');
-?>
+<!-- modal -->
+<div class="modal fade" id="modal_form"  tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Modal title</h4>
+      </div>
+      <div class="modal-body">
+        <form class="form-horizontal form-material" id="form">
+            <div class="form-group">
+                <label class="col-md-12">Nama Donatur</label>
+                <div class="col-md-12">
+                     <input type="hidden" id="id" name="id"/> 
+                    <input type="text" name="nama" id="nama" placeholder="Nama Donatur" class="form-control form-control-line">
+                    <span class="help-block"></span>
+                </div>
+                    
+            </div>
+            <div class="form-group">
+                <label for="jumlah" class="col-md-12">Jumlah</label>
+                <div class="col-md-12">
+                    <input type="number" placeholder="Jumlah" class="form-control form-control-line" name="jumlah" id="jumlah"> 
+                    <span class="help-block"></span>
+                </div>
+            </div>
+        
+        </form>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" id="btnSave" class="btn btn-primary" onclick="save()">Save changes</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<!-- endmodal -->
+
+<script>
+$('#dataku').dataTable();
+
+let save_method;
+function tambah() {
+    save_method = 'add';
+    $('#form')[0].reset(); // reset form on modals
+    $('.form-group').removeClass('has-error'); // clear error class
+    $('.help-block').empty(); // clear error string
+    $('#modal_form').modal('show'); 
+    $('.modal-title').text('Tambah Dana Dana Masuk'); 
+}
+function save(){
+    $('#btnSave').text('saving...'); //change button text
+    $('#btnSave').attr('disabled',true); //set button disable 
+    let url;
+
+    if(save_method == 'add') {
+        url = "admin/add_income.php";
+    } else {
+        url = "admin/edit_income.php";
+    }
+
+    // ajax adding data to database
+
+    let formData = new FormData($('#form')[0]);
+    $.ajax({
+        url : url,
+        type: "POST",
+        data: formData,
+        contentType: false,
+        processData: false,
+        dataType: "JSON",
+        success: function(data)
+        {
+
+            if(data.status) //if success close modal and reload ajax table
+            {
+                $('#modal_form').modal('hide');
+                 // delay 1 detik
+                  setTimeout(function() { $('#kontenku').load('admin/income.php'); }, 1000);
+                
+            }else{
+                for (let i = 0; i < data.inputerror.length; i++){
+                    $('[name="'+data.inputerror[i]+'"]').parent().parent().addClass('has-error'); //select parent twice to select div form-group class and add has-error class
+                    $('[name="'+data.inputerror[i]+'"]').next().text(data.error_string[i]); //select span help-block class set text error string
+                }
+            }
+            $('#btnSave').text('save'); //change button text
+            $('#btnSave').attr('disabled',false); //set button enable
+
+
+        },
+        error: function (jqXHR, textStatus, errorThrown)
+        {
+            alert('Error adding / update data');
+        }
+    });
+}
+function edit_income(id){
+    save_method = 'update';
+    $('#form')[0].reset(); // reset form on modals
+    $('.form-group').removeClass('has-error'); // clear error class
+    $('.help-block').empty(); // clear error string
+
+
+    //Ajax Load data from ajax
+    $.ajax({
+        url : "admin/get_income.php?id="+id,
+        type: "GET",
+        dataType: "JSON",
+        success: function(data)
+        {
+
+            $('#id').val(data.id);
+            $('#nama').val(data.nama);
+            $('#jumlah').val(data.jumlah);
+            $('#modal_form').modal('show'); // show bootstrap modal when complete loaded
+            $('.modal-title').text('Edit Dana Dana Masuk '); // Set title to Bootstrap modal title
+
+
+        },
+        error: function (jqXHR, textStatus, errorThrown)
+        {
+            alert('Error get data from ajax');
+        }
+    });
+}
+
+function delete_income(id)
+{
+    if(confirm('Kamu Yakin hapus data ini?'))
+    {
+        // ajax delete data to database
+        $.ajax({
+            url : "admin/delete_income.php?id="+id,
+            type: "GET",
+            dataType: "JSON",
+            success: function(data)
+            {
+                setTimeout(function() { $('#kontenku').load('admin/income.php'); }, 1000);
+            },
+            error: function (jqXHR, textStatus, errorThrown)
+            {
+                alert('Error deleting data');
+            }
+        });
+
+    }
+}
+function laporan() {
+    $('#kontenku').load('page/laporan_kas_masuk.php');
+}
+
+</script>
