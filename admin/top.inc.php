@@ -1,6 +1,7 @@
 <?php
 require('connection.inc.php');
 require('functions.inc.php');
+
 if(isset($_SESSION['ADMIN_LOGIN']) && $_SESSION['ADMIN_LOGIN']!=''){
 
 }else{
@@ -90,7 +91,7 @@ if(isset($_SESSION['ADMIN_LOGIN']) && $_SESSION['ADMIN_LOGIN']!=''){
          <header id="header" class="header">
             <div class="top-left">
                <div class="navbar-header">
-                  <a class="navbar-brand" href="index.php"><img src="admin/images/logo.png" alt="Logo"></a>
+                  <a class="navbar-brand" href="index.php"><img src="images/logo.png" alt="Logo"></a>
                   <!--<a class="navbar-brand hidden" href="index.php"><img src="images/logo2.png" alt="Logo"></a>-->
                   <a id="menuToggle" class="menutoggle"><i class="fa fa-bars"></i></a>
                </div>
@@ -106,50 +107,7 @@ if(isset($_SESSION['ADMIN_LOGIN']) && $_SESSION['ADMIN_LOGIN']!=''){
                </div>
             </div>
          </header>
-<!--<body>
-<div id="page-wrapper">
-                <div id="page-inner">
-                    <div class="row">
-                        <div class="col-md-12">
-
-                            <?php
-
-                        $page = $_GET['page'];
-                        $aksi = $_GET['aksi'];
-
-                        if($page == "masuk") {
-                            if($aksi =="") {
-                                include 'income.php';
-                            } if($aksi =="hapus") {
-                                include 'delete_income.php';
-                            }
-                        } /*elseif ($page == "keluar") {
-                            if($aksi =="") {
-                                include 'page/kas_keluar/keluar.php';
-                            } if($aksi =="hapus") {
-                               include 'page/kas_keluar/hapus.php';
-                            }
-                        } elseif ($page == "rekap") {
-                            if($aksi =="") {
-                                include 'page/rekap/rekap.php';
-                            }
-                        } elseif ($page == "user") {
-                            if($aksi =="") {
-                                include 'page/user/user.php';
-                            }
-                        } elseif ($page == "") {                           
-                                include 'dashboard.php';
-                            }  */                     
-                     ?>
-
-                        </div>
-                    </div>
-                    /. ROW  -->
-                    <hr />
-
-                </div>
-                <!-- /. PAGE INNER  -->
-            </div>
+<body>
 
             <script src="assets/js/jquery-1.10.2.js"></script>
         <!-- BOOTSTRAP SCRIPTS -->
@@ -165,4 +123,4 @@ if(isset($_SESSION['ADMIN_LOGIN']) && $_SESSION['ADMIN_LOGIN']!=''){
                 $('#dataTables-example').dataTable();
             });
         </script>
-</body>-->
+</body>

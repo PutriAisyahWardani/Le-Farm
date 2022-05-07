@@ -1,10 +1,6 @@
 <?php
 require('top.inc.php');
-isAdmin();
-if(!isset($_SESSION['username'])) {
-    header("location:login.php");
-    die();
-}
+
 $total = 0;
 
 ?>
@@ -21,6 +17,7 @@ $total = 0;
         <link href="assets/css/custom.css" rel="stylesheet" />
         <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
         <link href="assets/js/dataTables/dataTables.bootstrap.css" rel="stylesheet" />
+        
 
         <style>
             span {
@@ -38,7 +35,7 @@ $total = 0;
                     <div class="card-body">
                 <div class="panel panel-success">
                     <div class="panel-heading">
-                        <span>Data Kas Masuk</span>
+                        <span>Pendapatan</span>
                         <span title="Tambah Data"><button style="float: right;" class="btn-md btn btn-success"data-toggle="modal" data-target="#myModal">
                             <b>+ Tambah</b>
                     </button></span>
@@ -94,7 +91,7 @@ $total = 0;
                                 </tbody>
 
                                 <tr>
-                                    <td colspan="4" style="text-align: left; font-size: 17px; color: maroon;">Total Kas Masuk :</td>
+                                    <td colspan="4" style="text-align: left; font-size: 17px; color: maroon;">Total Pendapatan :</td>
                                     <td style="font-size: 17px; text-align: right; "><font style="color: green;"><?php echo " Rp." . number_format($total).",-"; ?></font></td>
                                 </tr>
                             </table>
@@ -102,12 +99,13 @@ $total = 0;
 
                         <!--  Halaman Tambah-->
                         <div class="panel-body">
-                            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                            <div id="myModal" class="modal fade" role="dialog">-->
+                            <!--<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">-->
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
                                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                            <h4 class="modal-title" id="myModalLabel">Form Tambah Data</h4>
+                                            <h4 class="modal-title" id="myModalLabel">Form Tambah Pendapatan</h4>
                                         </div>
                                         <div class="modal-body">
                                             <form role="form" method="POST">
