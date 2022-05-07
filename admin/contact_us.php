@@ -13,19 +13,41 @@ if(isset($_GET['type']) && $_GET['type']!=''){
 $sql="select * from contact_us order by id desc";
 $res=mysqli_query($con,$sql);
 ?>
-<div class="content pb-0">
-	<div class="orders">
-	   <div class="row">
-		  <div class="col-xl-12">
-			 <div class="card">
-				<div class="card-body">
-				   <h4 class="box-title">Kontak </h4>
-				</div>
-				<div class="card-body--">
-				   <div class="table-stats order-table ov-h">
-					  <table class="table ">
-						 <thead>
-							<tr>
+<!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+        <link href="assets/css/bootstrap.css" rel="stylesheet" />
+        <link href="assets/css/font-awesome.css" rel="stylesheet" />
+
+        <link href="assets/css/custom.css" rel="stylesheet" />
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+        <link href="assets/js/dataTables/dataTables.bootstrap.css" rel="stylesheet" />
+        
+
+        <style>
+            span {
+                font-size: 22px;
+            }
+        </style>
+    </head>
+	<div class="content pb-0">
+	    <div class="orders">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="card">
+                    <div class="card-body">
+                <div class="panel panel-success">
+                    <div class="panel-heading">
+                        <span>Kontak</span>
+                    </div>
+					<div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                <thead>
+								<tr>
 							   <th class="serial">#</th>
 							   <th>ID</th>
 							   <th>Nama</th>
@@ -35,7 +57,7 @@ $res=mysqli_query($con,$sql);
 							   <th>Tanggal</th>
 							   <th></th>
 							</tr>
-						 </thead>
+                                </thead>
 						 <tbody>
 							<?php 
 							$i=1;

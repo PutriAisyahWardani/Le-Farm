@@ -25,20 +25,44 @@ if(isset($_GET['type']) && $_GET['type']!=''){
 $sql="select * from admin_users where role=1 order by id desc";
 $res=mysqli_query($con,$sql);
 ?>
-<div class="content pb-0">
-	<div class="orders">
-	   <div class="row">
-		  <div class="col-xl-12">
-			 <div class="card">
-				<div class="card-body">
-				   <h4 class="box-title">Mitra </h4>
-				   <h4 class="box-link"><a href="manage_vendor_management.php">Tambah Mitra</a> </h4>
-				</div>
-				<div class="card-body--">
-				   <div class="table-stats order-table ov-h">
-					  <table class="table ">
-						 <thead>
-							<tr>
+<!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+        <link href="assets/css/bootstrap.css" rel="stylesheet" />
+        <link href="assets/css/font-awesome.css" rel="stylesheet" />
+
+        <link href="assets/css/custom.css" rel="stylesheet" />
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+        <link href="assets/js/dataTables/dataTables.bootstrap.css" rel="stylesheet" />
+        
+
+        <style>
+            span {
+                font-size: 22px;
+            }
+        </style>
+    </head>
+	<div class="content pb-0">
+	    <div class="orders">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="card">
+                    <div class="card-body">
+                <div class="panel panel-success">
+                    <div class="panel-heading">
+                        <span>Mitra</span>
+                        <!--<span title="Tambah Data"><button style="float: right;" class="btn-md btn btn-success"data-toggle="modal" data-target="#myModal">
+                            <b>+ Tambah</b>-->
+							<button style="float: right;" class="btn-md btn btn-success"><a href="manage_vendor_management.php">+ Tambah</a> </button>
+                    </div>
+					<div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                <thead>
+								<tr>
 							   <th class="serial">#</th>
 							   <th width="2%">ID</th>
 							   <th width="20%">Username</th>
@@ -47,7 +71,7 @@ $res=mysqli_query($con,$sql);
 							   <th width="10%">Mobile</th>
 							   <th width="26%"></th>
 							</tr>
-						 </thead>
+                                </thead>
 						 <tbody>
 							<?php 
 							$i=1;

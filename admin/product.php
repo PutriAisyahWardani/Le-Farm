@@ -32,31 +32,54 @@ if(isset($_GET['type']) && $_GET['type']!=''){
 $sql="select product.*,categories.categories from product,categories where product.categories_id=categories.id $condition order by product.id desc";
 $res=mysqli_query($con,$sql);
 ?>
-<div class="content pb-0">
-	<div class="orders">
-	   <div class="row">
-		  <div class="col-xl-12">
-			 <div class="card">
-				<div class="card-body">
-				   <h4 class="box-title">Product </h4>
-				   <h4 class="box-link"><a href="manage_product.php">Tambah Product</a> </h4>
-				</div>
-				<div class="card-body--">
-				   <div class="table-stats order-table ov-h">
-					  <table class="table ">
-						 <thead>
-							<tr>
-							   <th class="serial">#</th>
-							   <th width="2%">ID</th>
-							   <th width="10%">Kategori</th>
-							   <th width="30%">Nama</th>
-							   <th width="10%">Foto</th>
-							   <!--<th width="10%">MRP</th>-->
-							   <th width="7%">Harga</th>
-							   <th width="7%">Jumlah</th>
-							   <th width="26%"></th>
-							</tr>
-						 </thead>
+<!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+        <link href="assets/css/bootstrap.css" rel="stylesheet" />
+        <link href="assets/css/font-awesome.css" rel="stylesheet" />
+
+        <link href="assets/css/custom.css" rel="stylesheet" />
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+        <link href="assets/js/dataTables/dataTables.bootstrap.css" rel="stylesheet" />
+        
+
+        <style>
+            span {
+                font-size: 22px;
+            }
+        </style>
+    </head>
+	<div class="content pb-0">
+	    <div class="orders">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="card">
+                    <div class="card-body">
+                <div class="panel panel-success">
+                    <div class="panel-heading">
+                        <span>Produk</span>
+							<button style="float: right;" class="btn-md btn btn-success"><a href="manage_product.php"><b>+ Tambah</b></a> 
+						</button>
+                    </div>
+					<div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                <thead>
+                                    <tr>
+									<th class="serial">#</th>
+							   		<th width="2%">ID</th>
+									<th width="10%">Kategori</th>
+							   		<th width="30%">Nama</th>
+							   		<th width="10%">Foto</th>
+							   		<!--<th width="10%">MRP</th>-->
+							   		<th width="7%">Harga</th>
+							   		<th width="7%">Jumlah</th>
+							   		<th width="26%"></th>
+                                    </tr>
+                                </thead>
 						 <tbody>
 							<?php 
 							$i=1;

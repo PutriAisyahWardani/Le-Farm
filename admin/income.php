@@ -245,7 +245,10 @@ $total = 0;
 
             })
         </script>
+        <?php
+        require('footer.inc.php');
+        ?>
     </div>
     </body>
-
+    
     </html>
