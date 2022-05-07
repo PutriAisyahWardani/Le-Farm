@@ -1,11 +1,12 @@
 <?php
 require('top.inc.php');
-
 isAdmin();
 if(!isset($_SESSION['username'])) {
-    header("Location: login.php");
+    header("location:login.php");
     die();
 }
+$total = 0;
+
 ?>
 
     <!DOCTYPE html>
@@ -15,15 +16,10 @@ if(!isset($_SESSION['username'])) {
         <meta charset="UTF-8">
         <title></title>
         <link href="assets/css/bootstrap.css" rel="stylesheet" />
-        <!-- FONTAWESOME STYLES-->
         <link href="assets/css/font-awesome.css" rel="stylesheet" />
-        <!-- MORRIS CHART STYLES-->
 
-        <!-- CUSTOM STYLES-->
         <link href="assets/css/custom.css" rel="stylesheet" />
-        <!-- GOOGLE FONTS-->
         <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
-        <!-- TABLE STYLES-->
         <link href="assets/js/dataTables/dataTables.bootstrap.css" rel="stylesheet" />
 
         <style>
@@ -34,9 +30,12 @@ if(!isset($_SESSION['username'])) {
     </head>
 
     <body>
-        <div class="row">
-            <div class="col-md-12">
-                <!-- Advanced Tables -->
+    <div class="content pb-0">
+	    <div class="orders">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="card">
+                    <div class="card-body">
                 <div class="panel panel-success">
                     <div class="panel-heading">
                         <span>Data Kas Masuk</span>
@@ -44,7 +43,7 @@ if(!isset($_SESSION['username'])) {
                             <b>+ Tambah</b>
                     </button></span>
                     </div>
-                    <div class="panel-body">
+                    <div class="card-body">
                         <div class="table-responsive">
                             <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                                 <thead>
@@ -88,6 +87,7 @@ if(!isset($_SESSION['username'])) {
                                             </td>
                                         </tr>
                                         <?php 
+                                    
                                     $total = $total+$data['jumlah'];
                                     } 
                                 ?>
@@ -145,7 +145,7 @@ if(!isset($_SESSION['username'])) {
                         $ket = $_POST['ket'];
                         $jml = $_POST['jml'];
 
-                        $sql = mysqli_query($koneksi, "INSERT INTO kas (kode, keterangan, tgl, jumlah, jenis, keluar) VALUES ('$kode', '$ket', '$tgl', '$jml', 'masuk', 0)");
+                        $sql = mysqli_query($con, "INSERT INTO kas (kode, keterangan, tgl, jumlah, jenis, keluar) VALUES ('$kode', '$ket', '$tgl', '$jml', 'masuk', 0)");
 
                         if($sql) {
 
@@ -199,7 +199,7 @@ if(!isset($_SESSION['username'])) {
                                             $tgl = $_POST['tgl'];
                                             $jml = $_POST['jml'];
 
-                                            $sql = mysqli_query($koneksi, "UPDATE kas SET keterangan = '$ket', tgl = '$tgl', jumlah = '$jml', jenis = 'masuk', keluar = 0 WHERE kode = '$kode' ");
+                                            $sql = mysqli_query($con, "UPDATE kas SET keterangan = '$ket', tgl = '$tgl', jumlah = '$jml', jenis = 'masuk', keluar = 0 WHERE kode = '$kode' ");
                                             if($sql) {
                                                 echo "
                                                     <script>
@@ -247,7 +247,7 @@ if(!isset($_SESSION['username'])) {
 
             })
         </script>
-
+    </div>
     </body>
 
     </html>

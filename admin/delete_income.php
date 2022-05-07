@@ -6,7 +6,7 @@ if($sql) {
 	?>
     <script type="text/javascript">
         alert("Data Berhasil Dihapus");
-        window.location.href = "?income.php";
+        window.location.href = "income.php";
     </script>
     <?php		
 }

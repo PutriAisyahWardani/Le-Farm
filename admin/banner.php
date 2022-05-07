@@ -60,8 +60,7 @@ $res=mysqli_query($con,$sql);
 							   <td><?php echo $row['btn_txt']?></td>
 							   <td><?php echo $row['btn_link']?></td>-->
 							   <td>
-							   <?php
-							   
+							   <?php					   
 echo "<a target='_blank' href='".BANNER_SITE_PATH.$row['image']."'><img width='150px' src='".BANNER_SITE_PATH.$row['image']."'/></a>";
 							   ?>
 							   </td>
