@@ -8,6 +8,7 @@ if(isset($_SESSION['ADMIN_LOGIN']) && $_SESSION['ADMIN_LOGIN']!=''){
 	header('location:login.php');
 	die();
 }
+error_reporting(E_ALL ^ (E_NOTICE | E_WARNING));
 ?>
 <!doctype html>
 <html class="no-js" lang="">
@@ -81,6 +82,32 @@ if(isset($_SESSION['ADMIN_LOGIN']) && $_SESSION['ADMIN_LOGIN']!=''){
 				  <li class="menu-item-has-children dropdown">
                      <a href="contact_us.php" > Kontak </a>
                   </li>
+                  
+                
+                    <div class="row">
+                        
+                           <?php
+
+                        $page = $_GET['page'];
+                        $aksi = $_GET['aksi'];
+
+                        if($page == "masuk") {
+                            if($aksi =="") {
+                                include 'income.php';
+                            } if($aksi =="hapus") {
+                                include 'delete_income.php';
+                            }
+                        }                       
+                     ?>
+
+                        </div>
+                    </div>
+                    <!-- /. ROW  -->
+                    <hr />
+
+                </div>
+                <!-- /. PAGE INNER  -->
+            </div>
 				   
 				  <?php } ?>
                </ul>
