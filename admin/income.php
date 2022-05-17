@@ -100,7 +100,7 @@ $total = 0;
                         <!--  Halaman Tambah-->
                         <div class="panel-body">
                             <!--<div id="myModal" class="modal fade" role="dialog">-->
-                            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                            <!--<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">-->
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
