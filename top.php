@@ -28,7 +28,7 @@ $script_name=$_SERVER['SCRIPT_NAME'];
 $script_name_arr=explode('/',$script_name);
 $mypage=$script_name_arr[count($script_name_arr)-1];
 
-$meta_title="LeFarme";
+$meta_title="LeFarm";
 $meta_desc="LeFarm";
 $meta_keyword="LeFarm";
 $meta_url=SITE_PATH;
