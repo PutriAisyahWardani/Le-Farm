@@ -69,8 +69,8 @@ CREATE TABLE `banner` (
 --
 
 INSERT INTO `banner` (`id`, `heading1`, `heading2`, `btn_txt`, `btn_link`, `image`, `order_no`, `status`) VALUES
-(1, 'collection 2018', 'NICE CHAIR', 'Share Now', 'cart.php', '141838360_368356647_online-shopping-e-commerce-banner-concept-vector-25035204.jpg', 2, 0),
-(2, 'Collection 2021', 'I m Heading', '', '', '163630926_2.png', 1, 1);
+(1, 'Lefarm', 'NICE CHAIR', 'Share Now', 'cart.php', '141838360_368356647_online-shopping-e-commerce-banner-concept-vector-25035204.jpg', 2, 0),
+(2, 'Lefarm', 'I m Heading', '', '', '163630926_2.png', 1, 1);
 
 -- --------------------------------------------------------
 
