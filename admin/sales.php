@@ -11,11 +11,11 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Sales History
+        Histori Penjualan
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Sales</li>
+        <li class="active">Penjualan</li>
       </ol>
     </section>
 
@@ -41,11 +41,11 @@
               <table id="example1" class="table table-bordered">
                 <thead>
                   <th class="hidden"></th>
-                  <th>Date</th>
-                  <th>Buyer Name</th>
-                  <th>Transaction#</th>
-                  <th>Amount</th>
-                  <th>Full Details</th>
+                  <th>Tanggal</th>
+                  <th>Nama Pembeli</th>
+                  <th>Transaksi#</th>
+                  <th>Total</th>
+                  <th>Detail</th>
                 </thead>
                 <tbody>
                   <?php

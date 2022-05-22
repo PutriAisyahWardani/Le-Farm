@@ -11,11 +11,11 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Users
+        Customer
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Users</li>
+        <li class="active">Customer</li>
       </ol>
     </section>
 
@@ -47,16 +47,16 @@
         <div class="col-xs-12">
           <div class="box">
             <div class="box-header with-border">
-              <a href="#addnew" data-toggle="modal" class="btn btn-primary btn-sm btn-flat"><i class="fa fa-plus"></i> New</a>
+              <a href="#addnew" data-toggle="modal" class="btn btn-primary btn-sm btn-flat"><i class="fa fa-plus"></i> Tambah</a>
             </div>
             <div class="box-body">
               <table id="example1" class="table table-bordered">
                 <thead>
-                  <th>Photo</th>
+                  <th>Foto</th>
                   <th>Email</th>
-                  <th>Name</th>
+                  <th>Nama</th>
                   <th>Status</th>
-                  <th>Date Added</th>
+                  <th>Tanggal Join</th>
                   <th>Tools</th>
                 </thead>
                 <tbody>
