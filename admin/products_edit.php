@@ -24,7 +24,7 @@
 		$pdo->close();
 	}
 	else{
-		$_SESSION['error'] = 'Fill up edit product form first';
+		$_SESSION['error'] = 'Isi formulir edit produk terlebih dahulu';
 	}
 
 	header('location: products.php');

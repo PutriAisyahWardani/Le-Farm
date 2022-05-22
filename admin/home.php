@@ -78,7 +78,7 @@
             <div class="icon">
               <i class="fa fa-shopping-cart"></i>
             </div>
-            <a href="book.php" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="#" class="small-box-footer">Detail <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->
@@ -99,7 +99,7 @@
             <div class="icon">
               <i class="fa fa-barcode"></i>
             </div>
-            <a href="student.php" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="#" class="small-box-footer">Detail <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->
@@ -120,7 +120,7 @@
             <div class="icon">
               <i class="fa fa-users"></i>
             </div>
-            <a href="return.php" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="#" class="small-box-footer">Detail <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->
@@ -147,7 +147,7 @@
             <div class="icon">
               <i class="fa fa-money"></i>
             </div>
-            <a href="borrow.php" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="#" class="small-box-footer">Detail <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->
@@ -157,11 +157,11 @@
         <div class="col-xs-12">
           <div class="box">
             <div class="box-header with-border">
-              <h3 class="box-title">Monthly Sales Report</h3>
+              <h3 class="box-title">Laporan Penjualan Bulanan</h3>
               <div class="box-tools pull-right">
                 <form class="form-inline">
                   <div class="form-group">
-                    <label>Select Year: </label>
+                    <label>Pilih Tahun: </label>
                     <select class="form-control input-sm" id="select_year">
                       <?php
                         for($i=2015; $i<=2065; $i++){
@@ -235,7 +235,7 @@ $(function(){
     labels  : <?php echo $months; ?>,
     datasets: [
       {
-        label               : 'SALES',
+        label               : 'PENJUALAN',
         fillColor           : 'rgba(60,141,188,0.9)',
         strokeColor         : 'rgba(60,141,188,0.8)',
         pointColor          : '#3b8bba',

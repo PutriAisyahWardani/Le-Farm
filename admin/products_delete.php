@@ -10,7 +10,7 @@
 			$stmt = $conn->prepare("DELETE FROM products WHERE id=:id");
 			$stmt->execute(['id'=>$id]);
 
-			$_SESSION['success'] = 'Product deleted successfully';
+			$_SESSION['success'] = 'Produk berhasil di hapus';
 		}
 		catch(PDOException $e){
 			$_SESSION['error'] = $e->getMessage();
@@ -19,7 +19,7 @@
 		$pdo->close();
 	}
 	else{
-		$_SESSION['error'] = 'Select product to delete first';
+		$_SESSION['error'] = 'Pilih produk yang akan dihapus terlebih dahulu';
 	}
 
 	header('location: products.php');

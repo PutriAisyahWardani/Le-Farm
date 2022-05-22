@@ -19,12 +19,12 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Product List
+        Daftar Produk
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li>Products</li>
-        <li class="active">Product List</li>
+        <li>Produk</li>
+        <li class="active">Daftar Produk</li>
       </ol>
     </section>
 
@@ -56,11 +56,11 @@
         <div class="col-xs-12">
           <div class="box">
             <div class="box-header with-border">
-              <a href="#addnew" data-toggle="modal" class="btn btn-primary btn-sm btn-flat" id="addproduct"><i class="fa fa-plus"></i> New</a>
+              <a href="#addnew" data-toggle="modal" class="btn btn-primary btn-sm btn-flat" id="addproduct"><i class="fa fa-plus"></i> Tambah</a>
               <div class="pull-right">
                 <form class="form-inline">
                   <div class="form-group">
-                    <label>Category: </label>
+                    <label>Kategori: </label>
                     <select class="form-control input-sm" id="select_category">
                       <option value="0">ALL</option>
                       <?php
@@ -86,11 +86,11 @@
             <div class="box-body">
               <table id="example1" class="table table-bordered">
                 <thead>
-                  <th>Name</th>
-                  <th>Photo</th>
-                  <th>Description</th>
-                  <th>Price</th>
-                  <th>Views Today</th>
+                  <th>Nama</th>
+                  <th>Foto</th>
+                  <th>Deskripsi</th>
+                  <th>Harga</th>
+                  <th>Views Hari Ini</th>
                   <th>Tools</th>
                 </thead>
                 <tbody>
@@ -116,7 +116,7 @@
                             <td>".$counter."</td>
                             <td>
                               <button class='btn btn-success btn-sm edit btn-flat' data-id='".$row['id']."'><i class='fa fa-edit'></i> Edit</button>
-                              <button class='btn btn-danger btn-sm delete btn-flat' data-id='".$row['id']."'><i class='fa fa-trash'></i> Delete</button>
+                              <button class='btn btn-danger btn-sm delete btn-flat' data-id='".$row['id']."'><i class='fa fa-trash'></i> Hapus</button>
                             </td>
                           </tr>
                         ";

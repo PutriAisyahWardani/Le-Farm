@@ -17,7 +17,7 @@
 		$row = $stmt->fetch();
 
 		if($row['numrows'] > 0){
-			$_SESSION['error'] = 'Product already exist';
+			$_SESSION['error'] = 'Produk sudah ada';
 		}
 		else{
 			if(!empty($filename)){
@@ -43,7 +43,7 @@
 		$pdo->close();
 	}
 	else{
-		$_SESSION['error'] = 'Fill up product form first';
+		$_SESSION['error'] = 'Isi formulir produk terlebih dahulu';
 	}
 
 	header('location: products.php');
