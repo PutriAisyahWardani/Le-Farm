@@ -1,7 +1,7 @@
 <div class="row">
 	<div class="box box-solid">
 	  	<div class="box-header with-border">
-	    	<h3 class="box-title"><b>Most Viewed Today</b></h3>
+	    	<h3 class="box-title"><b>Dilihat hari ini</b></h3>
 	  	</div>
 	  	<div class="box-body">
 	  		<ul id="trending">
@@ -25,10 +25,10 @@
 <div class="row">
 	<div class="box box-solid">
 	  	<div class="box-header with-border">
-	    	<h3 class="box-title"><b>Become a Subscriber</b></h3>
+	    	<h3 class="box-title"><b>Menjadi Pelanggan</b></h3>
 	  	</div>
 	  	<div class="box-body">
-	    	<p>Get free updates on the latest products and discounts, straight to your inbox.</p>
+	    	<p>Dapatkan update gratis untuk produk dan diskon terbaru, langsung ke inbox.</p>
 	    	<form method="POST" action="">
 		    	<div class="input-group">
 	                <input type="text" class="form-control">

@@ -2,7 +2,7 @@
   <nav class="navbar navbar-static-top">
     <div class="container">
       <div class="navbar-header">
-        <a href="https://www.youtube.com/channel/UCsFgC9ggwrmYR2XqEHXpbNg" class="navbar-brand"><b>Ser</b>Bermz</a>
+        <a href="https://github.com/PutriAisyahWardani/Le-Farm.git" class="navbar-brand"><b>Le</b>farm</a>
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
           <i class="fa fa-bars"></i>
         </button>
@@ -15,7 +15,7 @@
           <li><a href="">ABOUT US</a></li>
           <li><a href="">CONTACT US</a></li>
           <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">CATEGORY <span class="caret"></span></a>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">KATEGORY <span class="caret"></span></a>
             <ul class="dropdown-menu" role="menu">
               <?php
              
@@ -41,7 +41,7 @@
         </ul>
         <form method="POST" class="navbar-form navbar-left" action="search.php">
           <div class="input-group">
-              <input type="text" class="form-control" id="navbar-search-input" name="keyword" placeholder="Search for Product" required>
+              <input type="text" class="form-control" id="navbar-search-input" name="keyword" placeholder="Cari Produk" required>
               <span class="input-group-btn" id="searchBtn" style="display:none;">
                   <button type="submit" class="btn btn-default btn-flat"><i class="fa fa-search"></i> </button>
               </span>
@@ -59,12 +59,12 @@
               <span class="label label-success cart_count"></span>
             </a>
             <ul class="dropdown-menu">
-              <li class="header">You have <span class="cart_count"></span> item(s) in cart</li>
+              <li class="header">Isi Keranjangmu <span class="cart_count"></span> item</li>
               <li>
                 <ul class="menu" id="cart_menu">
                 </ul>
               </li>
-              <li class="footer"><a href="cart_view.php">Go to Cart</a></li>
+              <li class="footer"><a href="cart_view.php">Ke Keranjang</a></li>
             </ul>
           </li>
           <?php

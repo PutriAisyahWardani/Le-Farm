@@ -44,11 +44,11 @@
 	        				<div class="col-sm-9">
 	        					<div class="row">
 	        						<div class="col-sm-3">
-	        							<h4>Name:</h4>
+	        							<h4>Nama:</h4>
 	        							<h4>Email:</h4>
 	        							<h4>Contact Info:</h4>
-	        							<h4>Address:</h4>
-	        							<h4>Member Since:</h4>
+	        							<h4>Alamat:</h4>
+	        							<h4>Anggota sejak:</h4>
 	        						</div>
 	        						<div class="col-sm-9">
 	        							<h4><?php echo $user['firstname'].' '.$user['lastname']; ?>
@@ -67,16 +67,16 @@
 	        		</div>
 	        		<div class="box box-solid">
 	        			<div class="box-header with-border">
-	        				<h4 class="box-title"><i class="fa fa-calendar"></i> <b>Transaction History</b></h4>
+	        				<h4 class="box-title"><i class="fa fa-calendar"></i> <b>Histori Transaksi</b></h4>
 	        			</div>
 	        			<div class="box-body">
 	        				<table class="table table-bordered" id="example1">
 	        					<thead>
 	        						<th class="hidden"></th>
-	        						<th>Date</th>
-	        						<th>Transaction#</th>
-	        						<th>Amount</th>
-	        						<th>Full Details</th>
+	        						<th>Tanggal</th>
+	        						<th>Transaksi#</th>
+	        						<th>Jumlah</th>
+	        						<th>Detail</th>
 	        					</thead>
 	        					<tbody>
 	        					<?php
