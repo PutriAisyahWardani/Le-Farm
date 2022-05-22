@@ -15,7 +15,7 @@
 		$_SESSION['lastname'] = $lastname;
 		$_SESSION['email'] = $email;
 
-		if(!isset($_SESSION['captcha'])){
+		/*if(!isset($_SESSION['captcha'])){
 			require('recaptcha/src/autoload.php');		
 			$recaptcha = new \ReCaptcha\ReCaptcha('6LevO1IUAAAAAFCCiOHERRXjh3VrHa5oywciMKcw', new \ReCaptcha\RequestMethod\SocketPost());
 			$resp = $recaptcha->verify($_POST['g-recaptcha-response'], $_SERVER['REMOTE_ADDR']);
@@ -29,10 +29,10 @@
 		  		$_SESSION['captcha'] = time() + (10*60);
 		  	}
 
-		}
+		}*/
 
 		if($password != $repassword){
-			$_SESSION['error'] = 'Passwords did not match';
+			$_SESSION['error'] = 'Password tidak cocok';
 			header('location: signup.php');
 		}
 		else{
@@ -42,7 +42,7 @@
 			$stmt->execute(['email'=>$email]);
 			$row = $stmt->fetch();
 			if($row['numrows'] > 0){
-				$_SESSION['error'] = 'Email already taken';
+				$_SESSION['error'] = 'Email sudah ada';
 				header('location: signup.php');
 			}
 			else{
@@ -63,7 +63,7 @@
 						<p>Your Account:</p>
 						<p>Email: ".$email."</p>
 						<p>Password: ".$_POST['password']."</p>
-						<p>Please click the link below to activate your account.</p>
+						<p>Silakan klik link di bawah ini untuk mengaktifkan akun Anda.</p>
 						<a href='http://localhost/ecommerce/activate.php?code=".$code."&user=".$userid."'>Activate Account</a>
 					";
 
@@ -105,12 +105,12 @@
 				        unset($_SESSION['lastname']);
 				        unset($_SESSION['email']);
 
-				        $_SESSION['success'] = 'Account created. Check your email to activate.';
+				        $_SESSION['success'] = 'Akun telah dibuat. Periksa email Anda untuk mengaktifkan.';
 				        header('location: signup.php');
 
 				    } 
 				    catch (Exception $e) {
-				        $_SESSION['error'] = 'Message could not be sent. Mailer Error: '.$mail->ErrorInfo;
+				        $_SESSION['error'] = 'Pesan tidak dapat dikirim. Kesalahan Pengirim: '.$mail->ErrorInfo;
 				        header('location: signup.php');
 				    }
 
@@ -129,7 +129,7 @@
 
 	}
 	else{
-		$_SESSION['error'] = 'Fill up signup form first';
+		$_SESSION['error'] = 'Isi formulir pendaftaran terlebih dahulu';
 		header('location: signup.php');
 	}
 

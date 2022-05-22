@@ -35,15 +35,15 @@
       }
     ?>
   	<div class="register-box-body">
-    	<p class="login-box-msg">Register a new membership</p>
+    	<p class="login-box-msg">Register</p>
 
     	<form action="register.php" method="POST">
           <div class="form-group has-feedback">
-            <input type="text" class="form-control" name="firstname" placeholder="Firstname" value="<?php echo (isset($_SESSION['firstname'])) ? $_SESSION['firstname'] : '' ?>" required>
+            <input type="text" class="form-control" name="firstname" placeholder="Nama Depan" value="<?php echo (isset($_SESSION['firstname'])) ? $_SESSION['firstname'] : '' ?>" required>
             <span class="glyphicon glyphicon-user form-control-feedback"></span>
           </div>
           <div class="form-group has-feedback">
-            <input type="text" class="form-control" name="lastname" placeholder="Lastname" value="<?php echo (isset($_SESSION['lastname'])) ? $_SESSION['lastname'] : '' ?>"  required>
+            <input type="text" class="form-control" name="lastname" placeholder="Nama Belakang" value="<?php echo (isset($_SESSION['lastname'])) ? $_SESSION['lastname'] : '' ?>"  required>
             <span class="glyphicon glyphicon-user form-control-feedback"></span>
           </div>
       		<div class="form-group has-feedback">
@@ -55,10 +55,10 @@
             <span class="glyphicon glyphicon-lock form-control-feedback"></span>
           </div>
           <div class="form-group has-feedback">
-            <input type="password" class="form-control" name="repassword" placeholder="Retype password" required>
+            <input type="password" class="form-control" name="repassword" placeholder="Konfirmasi password" required>
             <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
           </div>
-          <?php
+          <!--<?php
             if(!isset($_SESSION['captcha'])){
               echo '
                 <di class="form-group" style="width:100%;">
@@ -66,7 +66,7 @@
                 </di>
               ';
             }
-          ?>
+          ?>-->
           <hr>
       		<div class="row">
     			<div class="col-xs-4">

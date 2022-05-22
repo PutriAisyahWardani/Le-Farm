@@ -786,11 +786,11 @@ class PHPMailer
             return;
         }
         //Is this a PSR-3 logger?
-        if ($this->Debugoutput instanceof \Psr\Log\LoggerInterface) {
+        /*if ($this->Debugoutput instanceof \Psr\Log\LoggerInterface) {
             $this->Debugoutput->debug($str);
 
             return;
-        }
+        }*/
         //Avoid clash with built-in function names
         if (!in_array($this->Debugoutput, ['error_log', 'html', 'echo']) and is_callable($this->Debugoutput)) {
             call_user_func($this->Debugoutput, $str, $this->SMTPDebug);
@@ -3142,7 +3142,7 @@ class PHPMailer
         // Base64 has a 4:3 ratio
         $avgLength = floor($length * $ratio * .75);
 
-        for ($i = 0; $i < $mb_length; $i += $offset) {
+        /*for ($i = 0; $i < $mb_length; $i += $offset) {
             $lookBack = 0;
             do {
                 $offset = $avgLength - $lookBack;
@@ -3151,7 +3151,7 @@ class PHPMailer
                 ++$lookBack;
             } while (strlen($chunk) > $length);
             $encoded .= $chunk . $linebreak;
-        }
+        }*/
 
         // Chomp the last linefeed
         return substr($encoded, 0, -strlen($linebreak));
@@ -3596,10 +3596,10 @@ class PHPMailer
             //Is it a valid IPv4 address?
             return (bool) filter_var($host, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4);
         }
-        if (filter_var('http://' . $host, FILTER_VALIDATE_URL, FILTER_FLAG_HOST_REQUIRED)) {
+        /*if (filter_var('http://' . $host, FILTER_VALIDATE_URL, FILTER_FLAG_HOST_REQUIRED)) {
             //Is it a syntactically valid hostname?
             return true;
-        }
+        }*/
 
         return false;
     }

@@ -58,16 +58,16 @@
 			       
 			        //Content
 			        $mail->isHTML(true);                                  
-			        $mail->Subject = 'ECommerce Site Password Reset';
+			        $mail->Subject = 'Reset password Lefarm';
 			        $mail->Body    = $message;
 
 			        $mail->send();
 
-			        $_SESSION['success'] = 'Password reset link sent';
+			        $_SESSION['success'] = 'Link reset password terkirim';
 			     
 			    } 
 			    catch (Exception $e) {
-			        $_SESSION['error'] = 'Message could not be sent. Mailer Error: '.$mail->ErrorInfo;
+			        $_SESSION['error'] = 'Pesan tidak dapat dikirim. Kesalahan pengirim: '.$mail->ErrorInfo;
 			    }
 			}
 			catch(PDOException $e){
@@ -75,14 +75,14 @@
 			}
 		}
 		else{
-			$_SESSION['error'] = 'Email not found';
+			$_SESSION['error'] = 'Email tidak ditemukan';
 		}
 
 		$pdo->close();
 
 	}
 	else{
-		$_SESSION['error'] = 'Input email associated with account';
+		$_SESSION['error'] = 'Masukkan email yang ada';
 	}
 
 	header('location: password_forgot.php');
