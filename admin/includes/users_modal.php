@@ -5,7 +5,7 @@
             <div class="modal-header">
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span></button>
-              <h4 class="modal-title"><b>Add New User</b></h4>
+              <h4 class="modal-title"><b>Tambah Customer</b></h4>
             </div>
             <div class="modal-body">
               <form class="form-horizontal" method="POST" action="users_add.php" enctype="multipart/form-data">
@@ -24,35 +24,35 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="firstname" class="col-sm-3 control-label">Firstname</label>
+                    <label for="firstname" class="col-sm-3 control-label">Nama Depan</label>
 
                     <div class="col-sm-9">
                       <input type="text" class="form-control" id="firstname" name="firstname" required>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="lastname" class="col-sm-3 control-label">Lastname</label>
+                    <label for="lastname" class="col-sm-3 control-label">Nama Belakang</label>
 
                     <div class="col-sm-9">
                       <input type="text" class="form-control" id="lastname" name="lastname" required>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="address" class="col-sm-3 control-label">Address</label>
+                    <label for="address" class="col-sm-3 control-label">Alamat</label>
 
                     <div class="col-sm-9">
                       <textarea class="form-control" id="address" name="address"></textarea>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="contact" class="col-sm-3 control-label">Contact Info</label>
+                    <label for="contact" class="col-sm-3 control-label">Kontak</label>
 
                     <div class="col-sm-9">
                       <input type="text" class="form-control" id="contact" name="contact">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="photo" class="col-sm-3 control-label">Photo</label>
+                    <label for="photo" class="col-sm-3 control-label">Foto</label>
 
                     <div class="col-sm-9">
                       <input type="file" id="photo" name="photo">
@@ -60,8 +60,8 @@
                 </div>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-default btn-flat pull-left" data-dismiss="modal"><i class="fa fa-close"></i> Close</button>
-              <button type="submit" class="btn btn-primary btn-flat" name="add"><i class="fa fa-save"></i> Save</button>
+              <button type="button" class="btn btn-default btn-flat pull-left" data-dismiss="modal"><i class="fa fa-close"></i> Tutup</button>
+              <button type="submit" class="btn btn-primary btn-flat" name="add"><i class="fa fa-save"></i> Simpan</button>
               </form>
             </div>
         </div>
@@ -75,7 +75,7 @@
             <div class="modal-header">
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span></button>
-              <h4 class="modal-title"><b>Edit User</b></h4>
+              <h4 class="modal-title"><b>Edit Customer</b></h4>
             </div>
             <div class="modal-body">
               <form class="form-horizontal" method="POST" action="users_edit.php">
@@ -95,28 +95,28 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="edit_firstname" class="col-sm-3 control-label">Firstname</label>
+                    <label for="edit_firstname" class="col-sm-3 control-label">Nama Depan</label>
 
                     <div class="col-sm-9">
                       <input type="text" class="form-control" id="edit_firstname" name="firstname">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="edit_lastname" class="col-sm-3 control-label">Lastname</label>
+                    <label for="edit_lastname" class="col-sm-3 control-label">Nama Belakang</label>
 
                     <div class="col-sm-9">
                       <input type="text" class="form-control" id="edit_lastname" name="lastname">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="edit_address" class="col-sm-3 control-label">Address</label>
+                    <label for="edit_address" class="col-sm-3 control-label">Alamat</label>
 
                     <div class="col-sm-9">
                       <textarea class="form-control" id="edit_address" name="address"></textarea>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="edit_contact" class="col-sm-3 control-label">Contact Info</label>
+                    <label for="edit_contact" class="col-sm-3 control-label">Kontak</label>
 
                     <div class="col-sm-9">
                       <input type="text" class="form-control" id="edit_contact" name="contact">
@@ -124,7 +124,7 @@
                 </div>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-default btn-flat pull-left" data-dismiss="modal"><i class="fa fa-close"></i> Close</button>
+              <button type="button" class="btn btn-default btn-flat pull-left" data-dismiss="modal"><i class="fa fa-close"></i> Tutup</button>
               <button type="submit" class="btn btn-success btn-flat" name="edit"><i class="fa fa-check-square-o"></i> Update</button>
               </form>
             </div>
@@ -139,19 +139,19 @@
             <div class="modal-header">
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span></button>
-              <h4 class="modal-title"><b>Deleting...</b></h4>
+              <h4 class="modal-title"><b>Menghapus...</b></h4>
             </div>
             <div class="modal-body">
               <form class="form-horizontal" method="POST" action="users_delete.php">
                 <input type="hidden" class="userid" name="id">
                 <div class="text-center">
-                    <p>DELETE USER</p>
+                    <p>HAPUS CUSTOMER</p>
                     <h2 class="bold fullname"></h2>
                 </div>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-default btn-flat pull-left" data-dismiss="modal"><i class="fa fa-close"></i> Close</button>
-              <button type="submit" class="btn btn-danger btn-flat" name="delete"><i class="fa fa-trash"></i> Delete</button>
+              <button type="button" class="btn btn-default btn-flat pull-left" data-dismiss="modal"><i class="fa fa-close"></i> Tutup</button>
+              <button type="submit" class="btn btn-danger btn-flat" name="delete"><i class="fa fa-trash"></i> Hapus</button>
               </form>
             </div>
         </div>
@@ -179,7 +179,7 @@
                 </div>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-default btn-flat pull-left" data-dismiss="modal"><i class="fa fa-close"></i> Close</button>
+              <button type="button" class="btn btn-default btn-flat pull-left" data-dismiss="modal"><i class="fa fa-close"></i> Tutup</button>
               <button type="submit" class="btn btn-success btn-flat" name="upload"><i class="fa fa-check-square-o"></i> Update</button>
               </form>
             </div>
@@ -195,19 +195,19 @@
             <div class="modal-header">
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span></button>
-              <h4 class="modal-title"><b>Activating...</b></h4>
+              <h4 class="modal-title"><b>Aktivasi...</b></h4>
             </div>
             <div class="modal-body">
               <form class="form-horizontal" method="POST" action="users_activate.php">
                 <input type="hidden" class="userid" name="id">
                 <div class="text-center">
-                    <p>ACTIVATE USER</p>
+                    <p>AKTIVASI CUSTOMER</p>
                     <h2 class="bold fullname"></h2>
                 </div>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-default btn-flat pull-left" data-dismiss="modal"><i class="fa fa-close"></i> Close</button>
-              <button type="submit" class="btn btn-success btn-flat" name="activate"><i class="fa fa-check"></i> Activate</button>
+              <button type="button" class="btn btn-default btn-flat pull-left" data-dismiss="modal"><i class="fa fa-close"></i> Tutup</button>
+              <button type="submit" class="btn btn-success btn-flat" name="activate"><i class="fa fa-check"></i> Aktivasi</button>
               </form>
             </div>
         </div>

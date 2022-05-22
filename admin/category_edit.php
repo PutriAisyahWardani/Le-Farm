@@ -8,7 +8,7 @@
 		try{
 			$stmt = $conn->prepare("UPDATE category SET name=:name WHERE id=:id");
 			$stmt->execute(['name'=>$name, 'id'=>$id]);
-			$_SESSION['success'] = 'Category updated successfully';
+			$_SESSION['success'] = 'Kategori berhasil di update';
 		}
 		catch(PDOException $e){
 			$_SESSION['error'] = $e->getMessage();
@@ -17,7 +17,7 @@
 		$pdo->close();
 	}
 	else{
-		$_SESSION['error'] = 'Fill up edit category form first';
+		$_SESSION['error'] = 'Isi formulir edit kategori terlebih dahulu';
 	}
 
 	header('location: category.php');

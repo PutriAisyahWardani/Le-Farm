@@ -12,13 +12,13 @@
 		$row = $stmt->fetch();
 
 		if($row['numrows'] > 0){
-			$_SESSION['error'] = 'Category already exist';
+			$_SESSION['error'] = 'Kategori ini sudah ada';
 		}
 		else{
 			try{
 				$stmt = $conn->prepare("INSERT INTO category (name) VALUES (:name)");
 				$stmt->execute(['name'=>$name]);
-				$_SESSION['success'] = 'Category added successfully';
+				$_SESSION['success'] = 'Kategori berhasil ditambahkan';
 			}
 			catch(PDOException $e){
 				$_SESSION['error'] = $e->getMessage();
@@ -28,7 +28,7 @@
 		$pdo->close();
 	}
 	else{
-		$_SESSION['error'] = 'Fill up category form first';
+		$_SESSION['error'] = 'Isi formulir kategori terlebih dahulu';
 	}
 
 	header('location: category.php');

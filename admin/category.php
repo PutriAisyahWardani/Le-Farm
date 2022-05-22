@@ -11,12 +11,12 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Category
+        Kategori
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li>Products</li>
-        <li class="active">Category</li>
+        <li>Produk</li>
+        <li class="active">Kategori</li>
       </ol>
     </section>
 
@@ -53,7 +53,7 @@
             <div class="box-body">
               <table id="example1" class="table table-bordered">
                 <thead>
-                  <th>Category Name</th>
+                  <th>Nama Kategori</th>
                   <th>Tools</th>
                 </thead>
                 <tbody>
@@ -69,7 +69,7 @@
                             <td>".$row['name']."</td>
                             <td>
                               <button class='btn btn-success btn-sm edit btn-flat' data-id='".$row['id']."'><i class='fa fa-edit'></i> Edit</button>
-                              <button class='btn btn-danger btn-sm delete btn-flat' data-id='".$row['id']."'><i class='fa fa-trash'></i> Delete</button>
+                              <button class='btn btn-danger btn-sm delete btn-flat' data-id='".$row['id']."'><i class='fa fa-trash'></i> Hapus</button>
                             </td>
                           </tr>
                         ";
