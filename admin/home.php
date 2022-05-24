@@ -48,7 +48,7 @@
           echo "
             <div class='alert alert-success alert-dismissible'>
               <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
-              <h4><i class='icon fa fa-check'></i> Success!</h4>
+              <h4><i class='icon fa fa-check'></i> Sukses!</h4>
               ".$_SESSION['success']."
             </div>
           ";
@@ -73,12 +73,12 @@
 
                 echo "<h3>&#36; ".number_format_short($total, 2)."</h3>";
               ?>
-              <p>Total Sales</p>
+              <p>Total Penjualan</p>
             </div>
             <div class="icon">
               <i class="fa fa-shopping-cart"></i>
             </div>
-            <a href="#" class="small-box-footer">Detail <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="sales.php" class="small-box-footer">Detail <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->
@@ -94,12 +94,12 @@
                 echo "<h3>".$prow['numrows']."</h3>";
               ?>
           
-              <p>Number of Products</p>
+              <p>Produk</p>
             </div>
             <div class="icon">
               <i class="fa fa-barcode"></i>
             </div>
-            <a href="#" class="small-box-footer">Detail <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="products.php" class="small-box-footer">Detail <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->
@@ -115,12 +115,12 @@
                 echo "<h3>".$urow['numrows']."</h3>";
               ?>
              
-              <p>Number of Users</p>
+              <p>Customer</p>
             </div>
             <div class="icon">
               <i class="fa fa-users"></i>
             </div>
-            <a href="#" class="small-box-footer">Detail <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="users.php" class="small-box-footer">Detail <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->
@@ -142,12 +142,12 @@
                 
               ?>
 
-              <p>Sales Today</p>
+              <p>Penjualan Hari Ini</p>
             </div>
             <div class="icon">
               <i class="fa fa-money"></i>
             </div>
-            <a href="#" class="small-box-footer">Detail <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="sales.php" class="small-box-footer">Detail <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->

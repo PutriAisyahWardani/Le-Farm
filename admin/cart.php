@@ -31,8 +31,8 @@
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li>Users</li>
-        <li class="active">Cart</li>
+        <li>Customer</li>
+        <li class="active">Keranjang</li>
       </ol>
     </section>
 
@@ -53,7 +53,7 @@
           echo "
             <div class='alert alert-success alert-dismissible'>
               <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
-              <h4><i class='icon fa fa-check'></i> Success!</h4>
+              <h4><i class='icon fa fa-check'></i> Sukses!</h4>
               ".$_SESSION['Sukses']."
             </div>
           ";

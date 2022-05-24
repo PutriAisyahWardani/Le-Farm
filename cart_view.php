@@ -32,7 +32,7 @@
 	        		<?php
 	        			if(isset($_SESSION['user'])){
 	        				echo "
-	        					<div id='paypal-button'></div>
+							<button type='button' class='btn btn-primary'><span class='fa fa-whatsapp'></span> Order</button>
 	        				";
 	        			}
 	        			else{
