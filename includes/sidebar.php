@@ -22,7 +22,7 @@
 	</div>
 </div>
 
-<div class="row">
+<!--<div class="row">
 	<div class="box box-solid">
 	  	<div class="box-header with-border">
 	    	<h3 class="box-title"><b>Menjadi Pelanggan</b></h3>
@@ -37,11 +37,11 @@
 	                </span>
 	            </div>
 		    </form>
-	  	</div>
+	  	</div>-->
 	</div>
 </div>
 
-<div class="row">
+<!--<div class="row">
 	<div class='box box-solid'>
 	  	<div class='box-header with-border'>
 	    	<h3 class='box-title'><b>Follow us on Social Media</b></h3>
@@ -54,4 +54,4 @@
 	    	<a class="btn btn-social-icon btn-linkedin"><i class="fa fa-linkedin"></i></a>
 	  	</div>
 	</div>
-</div>
+</div>-->
