@@ -46,7 +46,7 @@
 		                  <span class="fa fa-angle-right"></span>
 		                </a>
 		            </div>
-		            <h2>Penjualan Teratas</h2>
+		            <h2>LeleFarm</h2>
 		       		<?php
 		       			$month = date('m');
 		       			$conn = $pdo->open();
