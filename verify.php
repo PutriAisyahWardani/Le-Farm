@@ -23,7 +23,7 @@
 						}
 					}
 					else{
-						$_SESSION['error'] = 'Password aalah';
+						$_SESSION['error'] = 'Password salah';
 					}
 				}
 				else{

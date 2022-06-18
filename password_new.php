@@ -13,7 +13,7 @@
 		$repassword = $_POST['repassword'];
 
 		if($password != $repassword){
-			$_SESSION['error'] = 'Passwords did not match';
+			$_SESSION['error'] = 'Password tidak sesuai';
 			header('location: '.$path);
 		}
 		else{
@@ -30,7 +30,7 @@
 					$stmt = $conn->prepare("UPDATE users SET password=:password WHERE id=:id");
 					$stmt->execute(['password'=>$password, 'id'=>$row['id']]);
 
-					$_SESSION['success'] = 'Password successfully reset';
+					$_SESSION['success'] = 'Password berhasil di update';
 					header('location: login.php');
 				}
 				catch(PDOException $e){
@@ -39,7 +39,7 @@
 				}
 			}
 			else{
-				$_SESSION['error'] = 'Code did not match with user';
+				$_SESSION['error'] = 'Code tidak cocok';
 				header('location: '.$path);
 			}
 
@@ -48,7 +48,7 @@
 
 	}
 	else{
-		$_SESSION['error'] = 'Input new password first';
+		$_SESSION['error'] = 'Input Password baru';
 		header('location: '.$path);
 	}
 

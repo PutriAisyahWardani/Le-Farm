@@ -25,13 +25,13 @@
         unset($_SESSION['error']);
       }
 
-      if(isset($_SESSION['success'])){
+      if(isset($_SESSION['sukses'])){
         echo "
           <div class='callout callout-success text-center'>
             <p>".$_SESSION['success']."</p> 
           </div>
         ";
-        unset($_SESSION['success']);
+        unset($_SESSION['sukses']);
       }
     ?>
   	<div class="register-box-body">
@@ -75,7 +75,7 @@
       		</div>
     	</form>
       <br>
-      <a href="login.php">I already have a membership</a><br>
+      <a href="login.php">Sudah memiliki membership</a><br>
       <a href="index.php"><i class="fa fa-home"></i> Home</a>
   	</div>
 </div>

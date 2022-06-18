@@ -12,7 +12,7 @@
 		
 	}
 	catch(PDOException $e){
-		echo "Ada masalah pada koneksi: " . $e->getMessage();
+		echo "Terjadi masalah pada koneksi: " . $e->getMessage();
 	}
 
 	//page view

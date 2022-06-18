@@ -21,7 +21,7 @@
       }
     ?>
   	<div class="login-box-body">
-    	<p class="login-box-msg">Enter email associated with account</p>
+    	<p class="login-box-msg">Masukkan email yang sudah terdaftar</p>
 
     	<form action="reset.php" method="POST">
       		<div class="form-group has-feedback">
@@ -35,7 +35,7 @@
       		</div>
     	</form>
       <br>
-      <a href="login.php">I rememberd my password</a><br>
+      <a href="login.php">Saya ingat kata sandi saya</a><br>
       <a href="index.php"><i class="fa fa-home"></i> Home</a>
   	</div>
 </div>

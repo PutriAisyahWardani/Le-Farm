@@ -42,7 +42,7 @@
 			$stmt->execute(['email'=>$email]);
 			$row = $stmt->fetch();
 			if($row['numrows'] > 0){
-				$_SESSION['error'] = 'Email sudah ada';
+				$_SESSION['error'] = 'Email sudah terdaftar';
 				header('location: signup.php');
 			}
 			else{
@@ -59,12 +59,12 @@
 					$userid = $conn->lastInsertId();
 
 					$message = "
-						<h2>Thank you for Registering.</h2>
+						<h2>Terimakasih telah mendaftar.</h2>
 						<p>Your Account:</p>
 						<p>Email: ".$email."</p>
 						<p>Password: ".$_POST['password']."</p>
 						<p>Silakan klik link di bawah ini untuk mengaktifkan akun Anda.</p>
-						<a href='http://localhost/ecommerce/activate.php?code=".$code."&user=".$userid."'>Activate Account</a>
+						<a href='http://localhost/ecommerce/activate.php?code=".$code."&user=".$userid."'>Aktivasi akun</a>
 					";
 
 					//Load phpmailer
