@@ -26,7 +26,7 @@
 		}
 		else{
 			$output['error'] = true;
-			$output['message'] = 'Product already in cart';
+			$output['message'] = 'Produk sudah ada di keranjang';
 		}
 	}
 	else{
@@ -42,18 +42,18 @@
 
 		if(in_array($id, $exist)){
 			$output['error'] = true;
-			$output['message'] = 'Product already in cart';
+			$output['message'] = 'Produk sudah ada di keranjang';
 		}
 		else{
 			$data['productid'] = $id;
 			$data['quantity'] = $quantity;
 
 			if(array_push($_SESSION['cart'], $data)){
-				$output['message'] = 'Item added to cart';
+				$output['message'] = 'Produk di tambahkan';
 			}
 			else{
 				$output['error'] = true;
-				$output['message'] = 'Cannot add item to cart';
+				$output['message'] = 'Tidak bisa menambahkan produk';
 			}
 		}
 
