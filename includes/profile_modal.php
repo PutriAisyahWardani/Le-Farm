@@ -5,12 +5,12 @@
             <div class="modal-header">
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span></button>
-              <h4 class="modal-title"><b>Transaction Full Details</b></h4>
+              <h4 class="modal-title"><b>Detail Transaksi</b></h4>
             </div>
             <div class="modal-body">
               <p>
                 Date: <span id="date"></span>
-                <span class="pull-right">Transaction#: <span id="transid"></span></span> 
+                <span class="pull-right">Transaksi#: <span id="transid"></span></span> 
               </p>
               <table class="table table-bordered">
                 <thead>
@@ -97,7 +97,7 @@
                 <hr>
                 
                 <div class="form-group">
-                    <label for="curr_password" class="col-sm-3 control-label">Current Password</label>
+                    <label for="curr_password" class="col-sm-3 control-label">Password saat ini</label>
 
                     <div class="col-sm-9">
                       <input type="password" class="form-control" id="curr_password" name="curr_password" placeholder="input current password to save changes" required>

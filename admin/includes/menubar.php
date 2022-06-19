@@ -15,7 +15,7 @@
     <ul class="sidebar-menu" data-widget="tree">
       <li class="header">REPORTS</li>
       <li><a href="home.php"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
-      <li><a href="sales.php"><i class="fa fa-money"></i> <span>Penjualan</span></a></li>
+      <li><a href="sales_new.php"><i class="fa fa-money"></i> <span>Penjualan</span></a></li>
       <li class="header">MANAGE</li>
       <li><a href="users.php"><i class="fa fa-users"></i> <span>Customer</span></a></li>
       <li class="treeview">

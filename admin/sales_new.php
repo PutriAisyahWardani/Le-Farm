@@ -11,18 +11,16 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Kategori
+        Histori Penjualan
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li>Produk</li>
-        <li class="active">Kategori</li>
+        <li class="active">Penjualan</li>
       </ol>
     </section>
 
-    <!-- Main content -->
     <section class="content">
-      <?php
+    <?php
         if(isset($_SESSION['error'])){
           echo "
             <div class='alert alert-danger alert-dismissible'>
@@ -47,30 +45,38 @@
       <div class="row">
         <div class="col-xs-12">
           <div class="box">
-            <div class="box-header with-border">
+          <div class="box-header with-border">
               <a href="#addnew" data-toggle="modal" class="btn btn-primary btn-sm btn-flat"><i class="fa fa-plus"></i> Tambah</a>
             </div>
             <div class="box-body">
               <table id="example1" class="table table-bordered">
                 <thead>
-                  <th>Nama Kategori</th>
+                  <th class="hidden"></th>
+                  <th>Tanggal</th>
+                  <th>Nama Pembeli</th>
+                  <th>Transaksi</th>
+                  <th>Total</th>
                   <th>Tools</th>
                 </thead>
                 <tbody>
-                  <?php
+                <?php
                     $conn = $pdo->open();
 
                     try{
-                      $stmt = $conn->prepare("SELECT * FROM category");
+                      $stmt = $conn->prepare("SELECT * FROM payment");
                       $stmt->execute();
                       foreach($stmt as $row){
                         echo "
                           <tr>
-                            <td>".$row['name']."</td>
-                            <td>
-                              <button class='btn btn-success btn-sm edit btn-flat' data-id='".$row['id']."'><i class='fa fa-edit'></i> Edit</button>
-                              <button class='btn btn-danger btn-sm delete btn-flat' data-id='".$row['id']."'><i class='fa fa-trash'></i> Hapus</button>
-                            </td>
+                          <td class='hidden'></td>
+                          <td>".date('M d, Y', strtotime($row['tanggal']))."</td>
+                          <td>".$row['username']."</td>
+                          <td>".$row['transaction']."</td>
+                          <td>".$row['total']."</td>
+                          <td>
+                            <button class='btn btn-success btn-sm edit btn-flat' data-id='".$row['id']."'><i class='fa fa-edit'></i> Edit</button>
+                            <button class='btn btn-danger btn-sm delete btn-flat' data-id='".$row['id']."'><i class='fa fa-trash'></i> Hapus</button>
+                          </td>
                           </tr>
                         ";
                       }
@@ -88,15 +94,12 @@
         </div>
       </div>
     </section>
-     
-  </div>
+    </div>
   	<?php include 'includes/footer.php'; ?>
-    <?php include 'includes/category_modal.php'; ?>
+    <?php include 'includes/sales_modal.php'; ?>
 
 </div>
-<!-- ./wrapper -->
-
-<?php include 'includes/scripts.php'; ?>
+  <?php include 'includes/scripts.php'; ?>
 <script>
 $(function(){
   $(document).on('click', '.edit', function(e){
@@ -113,21 +116,28 @@ $(function(){
     getRow(id);
   });
 
-});
-
-function getRow(id){
+  function getRow(id){
   $.ajax({
     type: 'POST',
-    url: 'category_row.php',
+    url: 'sales_row.php',
     data: {id:id},
     dataType: 'json',
     success: function(response){
-      $('.catid').val(response.id);
-      $('#edit_name').val(response.name);
-      $('.catname').html(response.name);
+      $('.id').val(response.id);
+      $('#edit_username').val(response.name);
+      $('.username').html(response.name);
+      $('#edit_tanggal').val(response.name);
+      $('.tanggal').html(response.name);
+      $('#edit_transaction').val(response.name);
+      $('.transaction').html(response.name);
+      $('#edit_total').val(response.name);
+      $('.total').html(response.name);
     }
   });
 }
+
+});
 </script>
+</div>
 </body>
 </html>

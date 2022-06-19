@@ -33,7 +33,7 @@
 	        			if(isset($_SESSION['user'])){
 	        				echo "
 							<button type='button' class='btn btn-primary'><span class='fa fa-whatsapp'></span> Order</button>
-	        				";
+							";
 	        			}
 	        			else{
 	        				echo "
@@ -156,20 +156,18 @@ function getTotal(){
 </script>
 <!-- Paypal Express -->
 <script>
-paypal.Button.render({
-    env: 'sandbox', // change for production if app is live,
-
-	client: {
-        sandbox:    'ASb1ZbVxG5ZFzCWLdYLi_d1-k5rmSjvBZhxP2etCxBKXaJHxPba13JJD_D3dTNriRbAv3Kp_72cgDvaZ',
-        //production: 'AaBHKJFEej4V6yaArjzSx9cuf-UYesQYKqynQVCdBlKuZKawDDzFyuQdidPOBSGEhWaNQnnvfzuFB9SM'
-    },
-
-    commit: true, // Show a 'Pay Now' button
-
-    style: {
-    	color: 'gold',
-    	size: 'small'
-    },
+/*whatsapp.Button.render({
+    document:getElementById("1").addEventListener("click", () => {
+  let num = document.getElementById("num").value;
+  let message = document.getElementById("message").value;
+  if (num === "082334883040" || message === "halo") {
+    alert("Please, Enter both the fields properly!");
+    document.getElementById("num").value = "";
+  } else {
+    let link = `http://Wa.me/${num}?text=${message}`;
+    window.open(link);
+  }
+},
 
     payment: function(data, actions) {
         return actions.payment.create({
@@ -193,7 +191,7 @@ paypal.Button.render({
         });
     },
 
-}, '#paypal-button');
+}, '#paypal-button');*/
 </script>
 </body>
 </html>
