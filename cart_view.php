@@ -29,19 +29,9 @@
 		        		</table>
 	        			</div>
 	        		</div>
-	        		<?php
-	        			if(isset($_SESSION['user'])){
-	        				echo "
-							<button type='button' class='btn btn-primary'><span class='fa fa-whatsapp'></span> Order</button>
-							";
-	        			}
-	        			else{
-	        				echo "
-	        					<h4><a href='login.php'>Login</a> sebelum order.</h4>
-	        				";
-	        			}
-	        		?>
-	        	</div>
+					<a href="https://wa.me/6282334883040" title="click to open whatsapp chat"><button class="btn btn-success">
+ 					<i class="fa fa-whatsapp"></i> Order Now</button></a>
+	        		</div>
 	        	<div class="col-sm-3">
 	        		<?php include 'includes/sidebar.php'; ?>
 	        	</div>
@@ -154,7 +144,6 @@ function getTotal(){
 	});
 }
 </script>
-<!-- Paypal Express -->
 <script>
 /*whatsapp.Button.render({
     document:getElementById("1").addEventListener("click", () => {
